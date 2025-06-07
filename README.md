@@ -301,10 +301,15 @@ Get-WinEvent -LogName "Microsoft-Windows-PowerShell/Operational" | Where-Object 
 
 Sysinternals Tools for process and system analysis<br/>
 **Process Explorer:** Provides detailed information about running processes, including open handles and loaded DLLs. Useful for identifying suspicious processes.<br/>
+
 **Process Monitor:** Offers real-time monitoring of file system, registry, process, and network activity. It is valuable for identifying abnormal behavior and forensic analysis.<br/>
+
 **TCPView:** Displays active TCP and UDP connections, helping identify unauthorized network communication.<br/>
+
 **Autoruns:** Lists auto-start extensibility points (ASEPs), allowing you to identify unusual programs configured to run at startup.<br/>
+
 **Sysmon:** Provides detailed logging of system events, including process creation, network connections, and file modifications. It is useful for feeding data into SIEM systems for comprehensive monitoring.<br/>
+
 **ProcDump:** Captures process memory dumps, aiding in malware analysis and understanding the behavior of suspicious processes.<br/>
 ____
 
