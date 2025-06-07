@@ -73,22 +73,22 @@ PowerShell is a powerful scripting language and command-line shell used extensiv
 
 Indicators of suspicious PowerShell activity  
 
-• Encoded Commands: Attackers may use the -EncodedCommand parameter to obfuscate their scripts, making it harder to detect malicious intent. 
-• External Script Downloads: Scripts that download and execute external executables from malicious URLs are a common. **Invoke-WebRequest** or **Invoke-Expression** used with URLs.
-• Hidden Windows: Scripts that use **-WindowStyle Hidden** or **Start-Process** with hidden window options can indicate attempts to avoid detection.
-• String manipulation and concatenation: Malicious scripts often break down commands into strings and use concatenation to evade detection by static analysis tools.
-• External Command Execution: PowerShell scripts that call external command-line utilities (e.g., cmd.exe, net.exe) can signify attempts to leverage system utilities for malicious purposes.
-• Registry Interrogation: Monitoring registry queries and modifications can reveal attempts to establish persistence or gather system information.
-• Unusual Scheduled Tasks: Creation of unusual or suspicious scheduled tasks can indicate persistence attempts. Check task properties and the last run time for anomalies.
-• Log Analysis: Use **Get-WinEvent** to review unusual log entries, especially those related to PowerShell script block logging (Event ID 4104) and pipeline execution (Event ID 4103).
+• Encoded Commands: Attackers may use the -EncodedCommand parameter to obfuscate their scripts, making it harder to detect malicious intent.<br/> 
+• External Script Downloads: Scripts that download and execute external executables from malicious URLs are a common. **Invoke-WebRequest** or **Invoke-Expression** used with URLs.<br/>
+• Hidden Windows: Scripts that use **-WindowStyle Hidden** or **Start-Process** with hidden window options can indicate attempts to avoid detection.<br/>
+• String manipulation and concatenation: Malicious scripts often break down commands into strings and use concatenation to evade detection by static analysis tools.<br/>
+• External Command Execution: PowerShell scripts that call external command-line utilities (e.g., cmd.exe, net.exe) can signify attempts to leverage system utilities for malicious purposes.<br/>
+• Registry Interrogation: Monitoring registry queries and modifications can reveal attempts to establish persistence or gather system information.<br/>
+• Unusual Scheduled Tasks: Creation of unusual or suspicious scheduled tasks can indicate persistence attempts. Check task properties and the last run time for anomalies.<br/>
+• Log Analysis: Use **Get-WinEvent** to review unusual log entries, especially those related to PowerShell script block logging (Event ID 4104) and pipeline execution (Event ID 4103).<br/>
 
 Sysinternals Tools for Process and System Analysis
-Process Explorer: Provides detailed information about running processes, including open handles and loaded DLLs. Useful for identifying suspicious processes.
-Process Monitor: Offers real-time monitoring of file system, registry, process, and network activity. It is valuable for identifying abnormal behavior and forensic analysis.
-TCPView: Displays active TCP and UDP connections, helping identify unauthorized network communication.
-Autoruns: Lists auto-start extensibility points (ASEPs), allowing you to identify unusual programs configured to run at startup.
-Sysmon: Provides detailed logging of system events, including process creation, network connections, and file modifications. It is useful for feeding data into SIEM systems for comprehensive monitoring.
-ProcDump: Captures process memory dumps, aiding in malware analysis and understanding the behavior of suspicious processes
+Process Explorer: Provides detailed information about running processes, including open handles and loaded DLLs. Useful for identifying suspicious processes.<br/>
+Process Monitor: Offers real-time monitoring of file system, registry, process, and network activity. It is valuable for identifying abnormal behavior and forensic analysis.<br/>
+TCPView: Displays active TCP and UDP connections, helping identify unauthorized network communication.<br/>
+Autoruns: Lists auto-start extensibility points (ASEPs), allowing you to identify unusual programs configured to run at startup.<br/>
+Sysmon: Provides detailed logging of system events, including process creation, network connections, and file modifications. It is useful for feeding data into SIEM systems for comprehensive monitoring.<br/>
+ProcDump: Captures process memory dumps, aiding in malware analysis and understanding the behavior of suspicious processes.<br/>
 
 ____
 
