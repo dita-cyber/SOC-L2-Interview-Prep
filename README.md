@@ -42,14 +42,14 @@ ____
 
 Domain Name System analysis is a crucial aspect of network security monitoring because DNS is a fundamental protocol that translates human-readable domain names into IP addresses, enabling communication over the internet. However, attackers can exploit DNS for malicious purposes, including C2 communication and data exfiltration. 
 
-DNS Tunneling:<br/>
+**DNS Tunneling:**<br/>
 •	Attackers can use DNS tunneling to encapsulate data or commands within DNS queries and responses. This allows them to bypass traditional network defenses by disguising traffic as legitimate DNS queries.<br/>
 •	To avoid detection and DNS caching, attackers often generate numerous unique subdomains for their C2 channels. A high volume of unique subdomains can be a strong IOC.<br/>
 
-DNS for Network Communication:<br/>
+**DNS for Network Communication:**<br/>
 •	DNS is essential for translating domain names into IP addresses. Analyzing DNS logs can provide insights into network traffic patterns and identify unusual or malicious activity.<br/>
 
-DNS Analysis Techniques<br/>
+**DNS Analysis Techniques**<br/>
 
 •	Top DNS queries and abnormal queries: Identify the most frequently queried domains. Sudden spikes or unusual patterns in DNS queries can indicate malicious activity.<br/>
 •	Identify High volume FQDN logs: Investigate FQDNs that appear frequently or that are associated with known malicious activity. <br/>
@@ -67,19 +67,19 @@ ____
 
 Potentially Unwanted Programs are a category of software that, while not overtly malicious like traditional malware, often exhibit behaviors that users find undesirable or intrusive. These programs typically installed alongside legitimate software, usually without explicit user consent. This bundling tactic is common in free software downloads, where users might overlook additional programs being installed. PUPs are often rated as highly malicious in OSINT platforms like VirusTotal for several reasons. While PUPs are not designed to be overtly harmful like traditional malware, their behaviors and characteristics can trigger high threat ratings like:<br/> 
 
-• Behavioral similarity to malware: Some PUPs exhibit behaviors similar to malware, such as installing without explicit consent, modifying system settings, or persisting in ways that make them difficult to remove.<br/> 
-• Bundled with malware:	PUPs are often distributed through software bundling, and in some cases, they may be bundled with actual malware or serve as a delivery mechanism for more harmful software.<br/>  
-Privacy Violations: PUPs often collect user data without clear consent, which can be considered a significant privacy violation. This behavior is sometimes flagged as malicious due to its potential for misuse or data leakage.<br/> 
-• Persistence and evasion techniques: The use of persistence mechanisms and evasion techniques to avoid detection and removal can cause PUPs to be rated more severely. Techniques such as modifying the registry or creating scheduled tasks are often associated with malicious intent.<br/> 
-• Reputation and history: If a particular PUP has a history of being linked to malicious activities or has been used in conjunction with malicious campaigns, OSINT platforms may rate its hashes more critically.<br/> 
-• Aggressive advertising and monetization: PUPs that aggressively monetize through intrusive ads or redirect users to potentially harmful sites can be rated as highly malicious due to their negative impact on user experience and potential security risks.<br/> 
-• Previous reports and community feedback: Community feedback and previous reports of negative experiences with a PUP can influence its rating. If users frequently report issues or associate the PUP with malicious behavior. Additionally, VirusTotal aggregates results from multiple antivirus vendors. If a PUP is detected by a majority of these vendors as having malicious characteristics, its overall threat rating will be higher.<br/> 
+**• Behavioral similarity to malware:** Some PUPs exhibit behaviors similar to malware, such as installing without explicit consent, modifying system settings, or persisting in ways that make them difficult to remove.<br/> 
+**• Bundled with malware:**	PUPs are often distributed through software bundling, and in some cases, they may be bundled with actual malware or serve as a delivery mechanism for more harmful software.<br/>
+**• Privacy violations:** PUPs often collect user data without clear consent, which can be considered a significant privacy violation. This behavior is sometimes flagged as malicious due to its potential for misuse or data leakage.<br/> 
+**• Persistence and evasion techniques:** The use of persistence mechanisms and evasion techniques to avoid detection and removal can cause PUPs to be rated more severely. Techniques such as modifying the registry or creating scheduled tasks are often associated with malicious intent.<br/> 
+**• Reputation and history:** If a particular PUP has a history of being linked to malicious activities or has been used in conjunction with malicious campaigns, OSINT platforms may rate its hashes more critically.<br/> 
+**• Aggressive advertising and monetization:** PUPs that aggressively monetize through intrusive ads or redirect users to potentially harmful sites can be rated as highly malicious due to their negative impact on user experience and potential security risks.<br/> 
+**• Previous reports and community feedback:** Community feedback and previous reports of negative experiences with a PUP can influence its rating. If users frequently report issues or associate the PUP with malicious behavior. Additionally, VirusTotal aggregates results from multiple antivirus vendors. If a PUP is detected by a majority of these vendors as having malicious characteristics, its overall threat rating will be higher.<br/> 
 
 PUP common behaviors:<br/> 
-• Adware: Displays intrusive advertisements, often redirecting users to specific websites.<br/> 
-• Browser Hijackers: Modify browser settings, such as the default search engine or homepage, to redirect traffic to specific sites.<br/> 
-• Spyware: Collects user data without explicit consent, potentially leading to privacy violations.<br/> 
-•	Dialers: Automatically dial phone numbers, often resulting in high charges, though less common today with the decline of dial-up internet.<br/> 
+**• Adware:** Displays intrusive advertisements, often redirecting users to specific websites.<br/> 
+**• Browser hijackers:** Modify browser settings, such as the default search engine or homepage, to redirect traffic to specific sites.<br/> 
+**• Spyware:** Collects user data without explicit consent, potentially leading to privacy violations.<br/> 
+**•	Dialers:** Automatically dial phone numbers, often resulting in high charges, though less common today with the decline of dial-up internet.<br/> 
 
 ____
 
@@ -89,22 +89,22 @@ PowerShell is a powerful scripting language and command-line shell used extensiv
 
 Indicators of suspicious PowerShell activity  
 
-• Encoded Commands: Attackers may use the -EncodedCommand parameter to obfuscate their scripts, making it harder to detect malicious intent.<br/> 
-• External Script Downloads: Scripts that download and execute external executables from malicious URLs are a common. **Invoke-WebRequest** or **Invoke-Expression** used with URLs.<br/>
-• Hidden Windows: Scripts that use **-WindowStyle Hidden** or **Start-Process** with hidden window options can indicate attempts to avoid detection.<br/>
-• String manipulation and concatenation: Malicious scripts often break down commands into strings and use concatenation to evade detection by static analysis tools.<br/>
-• External Command Execution: PowerShell scripts that call external command-line utilities (e.g., cmd.exe, net.exe) can signify attempts to leverage system utilities for malicious purposes.<br/>
-• Registry Interrogation: Monitoring registry queries and modifications can reveal attempts to establish persistence or gather system information.<br/>
-• Unusual Scheduled Tasks: Creation of unusual or suspicious scheduled tasks can indicate persistence attempts. Check task properties and the last run time for anomalies.<br/>
-• Log Analysis: Use **Get-WinEvent** to review unusual log entries, especially those related to PowerShell script block logging (Event ID 4104) and pipeline execution (Event ID 4103).<br/>
+**• Encoded commands:** Attackers may use the -EncodedCommand parameter to obfuscate their scripts, making it harder to detect malicious intent.<br/> 
+**• External script downloads:** Scripts that download and execute external executables from malicious URLs are a common. **Invoke-WebRequest** or **Invoke-Expression** used with URLs.<br/>
+**• Hidden windows:** Scripts that use **-WindowStyle Hidden** or **Start-Process** with hidden window options can indicate attempts to avoid detection.<br/>
+**• String manipulation and concatenation:** Malicious scripts often break down commands into strings and use concatenation to evade detection by static analysis tools.<br/>
+**• External command execution:** PowerShell scripts that call external command-line utilities (e.g., cmd.exe, net.exe) can signify attempts to leverage system utilities for malicious purposes.<br/>
+**• Registry interrogation:** Monitoring registry queries and modifications can reveal attempts to establish persistence or gather system information.<br/>
+**• Unusual scheduled tasks:** Creation of unusual or suspicious scheduled tasks can indicate persistence attempts. Check task properties and the last run time for anomalies.<br/>
+**• Log analysis:** Use **Get-WinEvent** to review unusual log entries, especially those related to PowerShell script block logging (Event ID 4104) and pipeline execution (Event ID 4103).<br/>
 
-Sysinternals Tools for Process and System Analysis
-Process Explorer: Provides detailed information about running processes, including open handles and loaded DLLs. Useful for identifying suspicious processes.<br/>
-Process Monitor: Offers real-time monitoring of file system, registry, process, and network activity. It is valuable for identifying abnormal behavior and forensic analysis.<br/>
-TCPView: Displays active TCP and UDP connections, helping identify unauthorized network communication.<br/>
-Autoruns: Lists auto-start extensibility points (ASEPs), allowing you to identify unusual programs configured to run at startup.<br/>
-Sysmon: Provides detailed logging of system events, including process creation, network connections, and file modifications. It is useful for feeding data into SIEM systems for comprehensive monitoring.<br/>
-ProcDump: Captures process memory dumps, aiding in malware analysis and understanding the behavior of suspicious processes.<br/>
+Sysinternals Tools for Process and System Analysis<br/>
+**Process Explorer:** Provides detailed information about running processes, including open handles and loaded DLLs. Useful for identifying suspicious processes.<br/>
+**Process Monitor:** Offers real-time monitoring of file system, registry, process, and network activity. It is valuable for identifying abnormal behavior and forensic analysis.<br/>
+**TCPView:** Displays active TCP and UDP connections, helping identify unauthorized network communication.<br/>
+**Autoruns:** Lists auto-start extensibility points (ASEPs), allowing you to identify unusual programs configured to run at startup.<br/>
+**Sysmon:** Provides detailed logging of system events, including process creation, network connections, and file modifications. It is useful for feeding data into SIEM systems for comprehensive monitoring.<br/>
+**ProcDump:** Captures process memory dumps, aiding in malware analysis and understanding the behavior of suspicious processes.<br/>
 
 ____
 
@@ -128,13 +128,13 @@ ____
 
 The Cyber Kill Chain was developed by Lockheed Martin and it models the stages of a cyberattack. The seven stages of the cyber kill model demonstrate a specific goal along with a threat actor's path. It is focused more in the progression of attacks:
 
-1.	Reconnaissance: The attacker gathers information about the target, such as network structure, vulnerabilities, and personnel details.<br/>
-2.	Weaponization: The attacker creates malware tailored to exploit specific vulnerabilities identified during reconnaissance.<br/>
-3.	Delivery: The attacker delivers the malware to the target, often via phishing emails, malicious websites, or infected USB drives.<br/>
-4.	Exploitation: The malware exploits a vulnerability in the target system, allowing the attacker to execute code.<br/>
-5.	Installation: The malware is installed on the target system, establishing a foothold.<br/>
-6.	Command and Control: The attacker establishes communication with the compromised system, allowing remote control.<br/>
-7.	Actions on Objectives: The attacker achieves their goals, such as data exfiltration, system disruption, or further propagation within the network.<br/>
+**1.	Reconnaissance:** The attacker gathers information about the target, such as network structure, vulnerabilities, and personnel details.<br/>
+**2.	Weaponization:** The attacker creates malware tailored to exploit specific vulnerabilities identified during reconnaissance.<br/>
+**3.	Delivery:** The attacker delivers the malware to the target, often via phishing emails, malicious websites, or infected USB drives.<br/>
+**4.	Exploitation:** The malware exploits a vulnerability in the target system, allowing the attacker to execute code.<br/>
+**5.	Installation:** The malware is installed on the target system, establishing a foothold.<br/>
+**6.	Command and Control:** The attacker establishes communication with the compromised system, allowing remote control.<br/>
+**7.	Actions on Objectives:** The attacker achieves their goals, such as data exfiltration, system disruption, or further propagation within the network.<br/>
 
 ____
 
@@ -146,7 +146,7 @@ The MITRE ATT&CK framework is a comprehensive and continuously updated knowledge
 
 Complete list of categories:
 
-•	Reconnaissance<br/>
+**•	Reconnaissance<br/>
 •	Resource Development<br/>
 •	Initial Access<br/>
 •	Execution<br/>
@@ -159,7 +159,7 @@ Complete list of categories:
 •	Collection<br/>
 •	Command and Control<br/>
 •	Exfiltration<br/>
-•	Impact<br/>
+•	Impact<br/>**
 
 From the categories I listed the ones I am focusing to understand the examples better:
 
