@@ -36,10 +36,10 @@ ____
 
 Static analysis involves examining malware without executing it. This method focuses on analyzing the file's structure, code, and metadata to understand its functionality and potential impact.
 
-**•	File Hashing:** Calculate hashes (e.g., MD5, SHA-256) for the malware file to check against known malware databases.
-**•	Disassembly:** Use tools like IDA Pro or Ghidra to disassemble the code and understand its logic.
-**•	String Analysis**
-**•	Metadata Examination:** Analyze the file's metadata, such as PE headers in Windows executables, to identify compilation details and potential anomalies.
+**•	File Hashing:** Calculate hashes (e.g., MD5, SHA-256) for the malware file to check against known malware databases.<br/>
+**•	Disassembly:** Use tools like IDA Pro or Ghidra to disassemble the code and understand its logic.<br/>
+**•	String Analysis**<br/>
+**•	Metadata Examination:** Analyze the file's metadata, such as PE headers in Windows executables, to identify compilation details and potential anomalies.<br/>
 
 In PowerShell, you can calculate hashes using:
 ```
