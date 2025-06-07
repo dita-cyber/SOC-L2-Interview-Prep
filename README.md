@@ -82,14 +82,24 @@ Commonly Used LOLBAS Tools
 | installutil.exe  | C:\Windows\Microsoft.NET\Framework\v4.0.30319\installutil.exe        | Run code during .NET assembly install                |
 | schtasks.exe     | (Path not fully visible)                                             | Create scheduled tasks for persistence               |
 
+Summary of each tool:
+
 **• certutil.exe:** A command-line utility for managing and manipulating certificates, certificate services, and keys in Windows. It is often used for tasks like importing, exporting, and verifying certificates.<br/> 
+
 **• mshta.exe:** A tool that executes Microsoft HTML Applications (HTA) files. HTA files are HTML-based applications that can run scripts, making mshta.exe a common vector for executing scripts on Windows.<br/> 
+
 **• regsvr32.exe:** A command-line utility used to register and unregister DLLs and ActiveX controls in the Windows Registry. It is frequently used in application installation and configuration processes.<br/> 
-**• rundll32.exe:** A system utility that allows the execution of DLL functions from the command line. It is often used to call specific functions within DLLs, enabling the automation of various tasks.<br/> 
+
+**• rundll32.exe:** A system utility that allows the execution of DLL functions from the command line. It is often used to call specific functions within DLLs, enabling the automation of various tasks.<br/>
+
 **• wmic.exe:** The Windows Management Instrumentation Command-line (WMIC) utility provides a command-line interface for accessing WMI data. It allows users to query system information, manage tasks, and interact with the Windows environment.<br/> 
+
 **• bitsadmin.exe:** A command-line tool for managing Background Intelligent Transfer Service (BITS), which facilitates asynchronous file transfers between machines. It is often used for downloading or uploading files in the background.<br/> 
+
 **• msbuild.exe:** Microsoft's build platform for building applications. It is used to compile, package, and deploy software projects based on configuration files and scripts.<br/> 
+
 **• installutil.exe:** A command-line utility for installing and uninstalling .NET Framework applications and components. It is commonly used to register and configure services and applications.<br/> 
+
 **•schtasks.exe:** A command-line utility for creating, deleting, querying, changing, running, or ending scheduled tasks on a Windows system. It is used to automate tasks and manage the Task Scheduler.<br/> 
 ____
 
