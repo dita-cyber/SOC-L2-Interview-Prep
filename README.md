@@ -101,6 +101,44 @@ ____
 
 ## **Lateral Movement**
 
+After gaining initial access to a network, the attacker moves through the network to access additional systems and data. This movement allows attackers to expand their control and escalate privileges, often in pursuit of high-value targets such as domain controllers or sensitive data. Investigating lateral movement involves analyzing network traffic and system logs for signs of credential theft, remote access, and unauthorized connections. I would look for unusual patterns such as repeated login attempts, use of remote desktop protocols, and abnormal network shares access
+
+**Stages of lateral movement**<br/>
+
+Lateral movement attacks typically follow a methodical progression that allows attackers to expand their control within a network:<br/> 
+**1.	Initial compromise:** The attacker gains entry through a vulnerable endpoint, often via phishing attacks, exploiting an unpatched vulnerability, or compromising credentials.<br/>
+**2.	Reconnaissance:** Once inside, attackers spend time observing and mapping the network, identifying potential targets, understanding access controls, and discovering valuable assets.<br/>
+**3.	Credential harvesting:** Attackers gather user credentials from the initially compromised system using techniques like keylogging, memory scraping, or accessing stored passwords.<br/>
+**4.	Privilege escalation:** Using the harvested credentials or exploiting vulnerabilities, attackers elevate their permissions to gain administrative or system-level access.<br/>
+**5.	Lateral movement execution:** With elevated privileges, attackers move to other systems by authenticating with stolen credentials or exploiting trust relationships between machines.<br/>
+**6.	Persistence establishment:** Throughout the process, attackers create backdoors and alternative access methods to ensure they maintain access even if the original entry point is discovered and remediated.<br/>
+**7.	Data discovery and exfiltration:** Once valuable assets are located, attackers extract sensitive information, often encrypting or disguising the data leakage to avoid detection.<br/>
+
+**Key Behaviors Indicative of Lateral Movement**<br/>
+**• Internal Reconnaissance:** Attackers probe the network for information about system configurations, user accounts, and shared resources to identify potential targets for lateral movement.<br/>
+**• Privilege Escalation Attempts:** Efforts to gain higher access levels using known vulnerabilities, credential theft, or exploitation of misconfigurations.<br/>
+**• Use of Remote Protocols:**	Exploitation of remote management protocols like RDP, SSH, or SMB to move between systems.<br/>
+**• Network Mapping:** Scanning for open ports and services on internal systems to identify potential avenues for lateral movement.<br/>
+**• Access to Shared Resources:**	Unauthorized access to network shares or databases, often using compromised credentials or exploiting trust relationships.<br/>
+**• Execution of Scripts and Commands:**	Running scripts or commands that automate the movement between systems, deploy payloads, or extract data.<br/>
+
+**Pivoting vs. Lateral Movement**
+Pivoting is the attacker’s strategy to expand their reach from a specific point. It’s like breaking into a single room and then figuring out how to access other areas using that room. 
+Lateral movement is more about maintaining a low profile while gathering credentials or data, like sneaking from room to room unnoticed. What sets them apart is that pivoting is the first move after breaching a weak spot. It’s like finding a compromised server and then using it as a base to access other servers within the network. The attacker might use tools like Metasploit to exploit vulnerabilities from this initial access point. For example, after breaking into a web server, they may access a database server connected to it through existing trust relationships. Lateral movement often comes after pivoting. Once attackers have infiltrated further, they start exploring the internal landscape. 
+
+**Common protocols and tools**<br/>
+**•	RDP<br/>
+•	SMB<br/>
+•	WMI<br/>
+•	WinRM<br/>
+•	Kerberos<br/>
+•	LANMAN/ NTLM<br/>
+•	Pass the hash/token<br/>
+•	SSH (not often seen)<br/>
+•	PSExec (not a protocol but methodology)<br/>
+•	Cobalt Strike<br/>
+•	Impacket**<br/>
+
 https://jpcertcc.github.io/ToolAnalysisResultSheet/
 
 ____
