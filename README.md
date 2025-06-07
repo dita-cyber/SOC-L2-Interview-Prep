@@ -64,13 +64,33 @@ ____
 Living Off the Land Binaries And Scripts is a technique used by attackers to exploit legitimate system tools and executables to perform malicious activities. This approach allows attackers to bypass security mechanisms such as application whitelisting, intrusion detection systems, and antivirus solutions, as these tools are typically trusted and not flagged as malicious.
 
 Attackers use pre-installed system binaries and scripts to execute attacks. These tools are part of the operating system or commonly installed applications, making them less likely to be scrutinized by security systems. Activities using LOLBAS appear as normal system operations, making them difficult to distinguish from legitimate administrative tasks.
- 
 
+https://lolbas-project.github.io/   
 
+Commonly Used LOLBAS Tools 
 
+| Tool             | Path                                                                 | Abuse Technique                                      |
+|------------------|----------------------------------------------------------------------|------------------------------------------------------|
+| powershell.exe   | C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe            | Execute payloads, download malware, bypass AV        |
+| certutil.exe     | C:\Windows\System32\certutil.exe                                     | Download files using: certutil -urlcache -f          |
+| mshta.exe        | C:\Windows\System32\mshta.exe                                        | Execute malicious HTML apps or remote scripts        |
+| regsvr32.exe     | C:\Windows\System32\regsvr32.exe                                     | Load and execute remote/local DLLs                   |
+| rundll32.exe     | C:\Windows\System32\rundll32.exe                                     | Execute DLLs or scripts to evade detection           |
+| wmic.exe         | C:\Windows\System32\wbem\wmic.exe                                    | Execute commands, gather system info                 |
+| bitsadmin.exe    | C:\Windows\System32\bitsadmin.exe                                    | Download/upload files silently                       |
+| msbuild.exe      | C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe            | Execute malicious C# code in project files           |
+| installutil.exe  | C:\Windows\Microsoft.NET\Framework\v4.0.30319\installutil.exe        | Run code during .NET assembly install                |
+| schtasks.exe     | (Path not fully visible)                                             | Create scheduled tasks for persistence               |
 
-https://lolbas-project.github.io/    
-
+**• certutil.exe:** A command-line utility for managing and manipulating certificates, certificate services, and keys in Windows. It is often used for tasks like importing, exporting, and verifying certificates.<br/> 
+**• mshta.exe:** A tool that executes Microsoft HTML Applications (HTA) files. HTA files are HTML-based applications that can run scripts, making mshta.exe a common vector for executing scripts on Windows.<br/> 
+**• regsvr32.exe:** A command-line utility used to register and unregister DLLs and ActiveX controls in the Windows Registry. It is frequently used in application installation and configuration processes.<br/> 
+**• rundll32.exe:** A system utility that allows the execution of DLL functions from the command line. It is often used to call specific functions within DLLs, enabling the automation of various tasks.<br/> 
+**• wmic.exe:** The Windows Management Instrumentation Command-line (WMIC) utility provides a command-line interface for accessing WMI data. It allows users to query system information, manage tasks, and interact with the Windows environment.<br/> 
+**• bitsadmin.exe:** A command-line tool for managing Background Intelligent Transfer Service (BITS), which facilitates asynchronous file transfers between machines. It is often used for downloading or uploading files in the background.<br/> 
+**• msbuild.exe:** Microsoft's build platform for building applications. It is used to compile, package, and deploy software projects based on configuration files and scripts.<br/> 
+**• installutil.exe:** A command-line utility for installing and uninstalling .NET Framework applications and components. It is commonly used to register and configure services and applications.<br/> 
+**•schtasks.exe:** A command-line utility for creating, deleting, querying, changing, running, or ending scheduled tasks on a Windows system. It is used to automate tasks and manage the Task Scheduler.<br/> 
 ____
 
 **PUPs**
