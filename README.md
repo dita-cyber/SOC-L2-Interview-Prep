@@ -20,26 +20,26 @@ Persistence refers to a threat actor's ability to maintain a foothold in a compr
 
 To assess persistence, I would check for common persistence mechanisms such as registry modifications, scheduled tasks, startup folder entries, and new services that may have been created.
 
-Goals of Persistence<br/>
-1.	Regain Access: Ensuring the ability to reconnect to the compromised system.<br/>
-2.	Avoid Detection: Implementing methods that are stealthy to avoid being caught by security systems or analysts.<br/>
-3.	Preserve Privileges: Maintaining or escalating privileges to perform necessary actions.<br/>
-4.	Flexibility to Reestablish Access: Using different methods to re-enter the system if one is blocked or removed.<br/>
+**Goals of Persistence**<br/>
+• Regain Access: Ensuring the ability to reconnect to the compromised system.<br/>
+• Avoid Detection: Implementing methods that are stealthy to avoid being caught by security systems or analysts.<br/>
+• Preserve Privileges: Maintaining or escalating privileges to perform necessary actions.<br/>
+• Flexibility to Reestablish Access: Using different methods to re-enter the system if one is blocked or removed.<br/>
 
-Techniques for Achieving Persistence
-1.	Create New Accounts: net user /add to create new user accounts with administrator privileges to ensure continued access.<br/>
-3.	ASEPs (Auto-Start Extensibility Points): Modifying points in the system where programs are configured to start automatically, such as startup folders, registry run keys, or services.<br/>
-4.	Registry Run Keys: Adding or modifying registry keys that cause programs to execute upon system startup:
+**Techniques for Achieving Persistence**
+• Create New Accounts: net user /add to create new user accounts with administrator privileges to ensure continued access.<br/>
+• ASEPs (Auto-Start Extensibility Points): Modifying points in the system where programs are configured to start automatically, such as startup folders, registry run keys, or services.<br/>
+•	Registry Run Keys: Adding or modifying registry keys that cause programs to execute upon system startup:
 ```
 HKLM\Software\Microsoft\Windows\CurrentVersion\Run
 ```
-5.	Netcat Listeners / Reverse TCP Shells:	Deploying tools like Netcat to listen for incoming connections or establishing reverse shells that call back to the attacker's server.<br/>
-6.	Scheduled Tasks / WMI (Windows Management Instrumentation): Creating scheduled tasks to execute malicious scripts or programs periodically or upon certain events. WMI can be used for more complex event-driven persistence mechanisms.<br/>
-7.	Active Directory Exploits (e.g., Golden Ticket): Utilizing Kerberos exploits, such as the Golden Ticket, to create forged authentication tokens that provide long-term access to AD environments.<br/>
-8.	Web Shells: Compromising a web server and inserting a web shell to provide remote access via HTTP/S, allowing the attacker to execute commands on the server.<br/>
+•	Netcat Listeners / Reverse TCP Shells:	Deploying tools like Netcat to listen for incoming connections or establishing reverse shells that call back to the attacker's server.<br/>
+• Scheduled Tasks / WMI (Windows Management Instrumentation): Creating scheduled tasks to execute malicious scripts or programs periodically or upon certain events. WMI can be used for more complex event-driven persistence mechanisms.<br/>
+• Active Directory Exploits (e.g., Golden Ticket): Utilizing Kerberos exploits, such as the Golden Ticket, to create forged authentication tokens that provide long-term access to AD environments.<br/>
+•	Web Shells: Compromising a web server and inserting a web shell to provide remote access via HTTP/S, allowing the attacker to execute commands on the server.<br/>
 
 
-Event IDs for Monitoring Persistence (Windows)
+**Event IDs for Monitoring Persistence (Windows)**
 | **Event ID** | **Event Name**                                               | **Use Case**                                                                 |
 |--------------|--------------------------------------------------------------|---------------------------------------------------------------------------------------------|
 | 4624         | Logon                                                        | Successful logon events. Unusual logons might indicate the use of new or unexpected accounts. |
@@ -52,7 +52,7 @@ Event IDs for Monitoring Persistence (Windows)
 | 4768         | Kerberos Authentication Ticket (TGT) Requested               | Unusual TGT requests might indicate forged ticket usage or lateral movement.                |
 | 7045         | New Windows service is installed on a system                 | New Windows service is installed on a system                            |
  
-Suspicious IOCs:
+**Suspicious IOCs:**
 
 • Registry-Based Persistence (Windows)<br/>
 ```
@@ -101,9 +101,37 @@ ____
 
 ## **Lateral Movement**
 
+https://jpcertcc.github.io/ToolAnalysisResultSheet/
+
 ____
 
-## **Data Exfiltration**
+## **Data Exfiltration**<br/>
+
+To confirm data exfiltration, I would analyze network logs for large data transfers to external IP addresses and protocol analysis for HTTP, HTTPS, FTP, and DNS. I would also examine endpoint logs and system changes for signs of data packaging or compression activities. Reviewing firewall logs for unusual outbound traffic patterns can provide evidence of exfiltration. Tools like DLP (Data Loss Prevention) can be used to track sensitive data movement and validate exfiltration attempts.
+
+**Data Exfiltration vs. Data Leakage vs. Data Breach**<br/>
+
+**Data Exfiltration** is a deliberate, targeted extraction of data from a secure system. It involves the unauthorized transfer of data to an external destination and typically requires malicious intent. This occurs through sophisticated attack methods like malware deployment, social engineering, or exploitation of system vulnerabilities.
+
+**Data Leakage** occurs when sensitive information is unintentionally exposed due to human error or system misconfiguration. Common examples include misconfigured cloud storage, accidental email attachments, or improper data handling. Unlike exfiltration, leakage doesn’t require malicious intent and often results from negligence or lack of security awareness.
+
+**Data Breach** encompasses a broader category of security incidents where unauthorized access to protected information occurs. It can result from either exfiltration or leakage and includes any incident involving unauthorized disclosure, loss of control, or data compromise.
+
+**How to Detect Data Exfiltration**
+•	Monitoring DNS queries<br/>
+•	Monitor suspicious file compression or encryption
+•	Analyzing outbound email traffic<br/>
+•	Tracking file access patterns that involves file extensions and large file transfers<br/>  
+•	Implementing data loss prevention (DLP) solutions: DLP systems can actively monitor and restrict the movement of sensitive data, alerting security teams when potential exfiltration attempts are detected<br/>
+•	Employing UEBA (User and entity behavior analytics) tools to establish a baseline of normal user activity, alerting teams to deviations that could signify malicious intent<br/>
+
+**Suspicious IOCs:** 
+
+•	Suspicious file compression or encryption<br/> 
+• Monitor beaconing behavior - Regular, periodic outbound connections<br/> 
+• Use of command-line tools for transfer - Use of curl, wget, ftp, scp, Invoke-WebRequest, or bitsadmin<br/> 
+• Unusual locations - Sensitive files copied to temp folders, recycle bin, or hidden directories before transfer<br/> 
+• Excessive file access or copying - User accessing or copying large numbers of files in a short time from file shares or sensitive directories<br/> 
 
 ____
 
