@@ -1,4 +1,4 @@
-#SOC Analyst Level 2 position interview 2025
+SOC Analyst Level 2 position interview 2025
 
 I have been reviewing some materials for an interview for a Level 2 SOC Analyst position, leveraging both technical knowledge and practical experience from my time as a SOC Level 1 Analyst. I found this approach to be a valuable way to organize my concepts and reference them as needed. The content I've compiled mainly comes from my GCIH certification materials and various cybersecurity articles from leading companies. Additionally, I used AI to gain further insights. 
 
