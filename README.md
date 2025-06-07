@@ -20,30 +20,23 @@ Persistence refers to a threat actor's ability to maintain a foothold in a compr
 
 To assess persistence, I would check for common persistence mechanisms such as registry modifications, scheduled tasks, startup folder entries, and new services that may have been created.
 
-Goals of Persistence
-1.	Regain Access: Ensuring the ability to reconnect to the compromised system.
-2.	Avoid Detection: Implementing methods that are stealthy to avoid being caught by security systems or analysts.
-3.	Preserve Privileges: Maintaining or escalating privileges to perform necessary actions.
-4.	Flexibility to Reestablish Access: Using different methods to re-enter the system if one is blocked or removed.
+Goals of Persistence<br/>
+1.	Regain Access: Ensuring the ability to reconnect to the compromised system.<br/>
+2.	Avoid Detection: Implementing methods that are stealthy to avoid being caught by security systems or analysts.<br/>
+3.	Preserve Privileges: Maintaining or escalating privileges to perform necessary actions.<br/>
+4.	Flexibility to Reestablish Access: Using different methods to re-enter the system if one is blocked or removed.<br/>
+
 Techniques for Achieving Persistence
-1.	Create New Accounts:
-o	Using commands like
-net user /add
-to create new user accounts with administrator privileges to ensure continued access.
-2.	ASEPs (Auto-Start Extensibility Points):
-o	Modifying points in the system where programs are configured to start automatically, such as startup folders, registry run keys, or services.
-3.	Registry Run Keys:
-o	Adding or modifying registry keys that cause programs to execute upon system startup, such as
+1.	Create New Accounts: net user /add to create new user accounts with administrator privileges to ensure continued access.<br/>
+3.	ASEPs (Auto-Start Extensibility Points): Modifying points in the system where programs are configured to start automatically, such as startup folders, registry run keys, or services.<br/>
+4.	Registry Run Keys: Adding or modifying registry keys that cause programs to execute upon system startup:
+```
 HKLM\Software\Microsoft\Windows\CurrentVersion\Run
-.
-4.	Netcat Listeners / Reverse TCP Shells:
-o	Deploying tools like Netcat to listen for incoming connections or establishing reverse shells that call back to the attacker's server.
-5.	Scheduled Tasks / WMI (Windows Management Instrumentation):
-o	Creating scheduled tasks to execute malicious scripts or programs periodically or upon certain events. WMI can be used for more complex event-driven persistence mechanisms.
-6.	Active Directory Exploits (e.g., Golden Ticket):
-o	Utilizing Kerberos exploits, such as the Golden Ticket, to create forged authentication tokens that provide long-term access to AD environments.
-7.	Web Shells:
-o	Compromising a web server and inserting a web shell to provide remote access via HTTP/S, allowing the attacker to execute commands on the server.
+```
+5.	Netcat Listeners / Reverse TCP Shells:	Deploying tools like Netcat to listen for incoming connections or establishing reverse shells that call back to the attacker's server.<br/>
+6.	Scheduled Tasks / WMI (Windows Management Instrumentation): Creating scheduled tasks to execute malicious scripts or programs periodically or upon certain events. WMI can be used for more complex event-driven persistence mechanisms.<br/>
+7.	Active Directory Exploits (e.g., Golden Ticket): Utilizing Kerberos exploits, such as the Golden Ticket, to create forged authentication tokens that provide long-term access to AD environments.<br/>
+8.	Web Shells: Compromising a web server and inserting a web shell to provide remote access via HTTP/S, allowing the attacker to execute commands on the server.<br/>
 
 
 Event IDs for Monitoring Persistence (Windows)
@@ -60,7 +53,49 @@ Event IDs for Monitoring Persistence (Windows)
  
 Suspicious IOCs:
 
+• Registry-Based Persistence (Windows)<br/>
+```
+HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+HKLM\SYSTEM\CurrentControlSet\Services\
+HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell
+```
 
+• Scheduled Tasks / Cron Jobs<br/>
+Creation of suspicious scheduled tasks (schtasks.exe)<br/>
+Unusual cron jobs (Linux): <br/>
+```
+/etc/crontab, /etc/cron.*/
+```
+
+• WMI Event Subscriptions<br/>
+Creation of __EventFilter, __EventConsumer, or __FilterToConsumerBinding<br/>
+Use of wmic or PowerShell Register-WmiEvent<br/>
+
+• Startup Folder Abuse<br/>
+Files dropped in:<br/>
+```
+%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup
+```
+
+• DLL Side-Loading / Hijacking<br/>
+Unusual DLLs in application directories<br/>
+DLLs with mismatched names or hashes<br/>
+
+• Service Creation / Modification<br/>
+Use of sc.exe create or PowerShell New-Service<br/>
+Suspicious Event ID 7045 entries -  New Windows service is installed on a system <br/>
+
+• Unusual Parent-Child Process Relationships<br/>
+explorer.exe → cmd.exe or powershell.exe<br/>
+svchost.exe → unknown binaries<br/>
+
+• Logon Scripts / Group Policy Abuse<br/>
+Modifications to:<br/>
+UserInit, Shell, or Logon scripts in registry<br/>
+GPOs that launch scripts or executables<br/>
+
+• Binary Planting / Path Interception<br/>
+Malicious binaries placed in directories earlier in the system PATH<br/>
 ____
 
 ## **Lateral Movement**
