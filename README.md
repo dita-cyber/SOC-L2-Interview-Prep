@@ -214,13 +214,24 @@ ____
 
 **Tcpdump**
 
+Command-line packet analysis tool that allows users to capture and examine network traffic. It's widely used by network administrators and security professionals for troubleshooting, network performance analysis, and security auditing. 
 ____
 
 **Nmap**
 
+Nmap (Network Mapper) is a widely-used open-source tool for network discovery and security auditing.  It includes network discovery and mapping, port scanning, service version detection, and operating system detection capabilities. 
+
+**Host Discovery Techniques**<br/>
+**Default Host Discovery:** Before initiating a port scan, Nmap performs host discovery to determine which hosts are up. By default, it may use methods like ICMP echo requests, TCP SYN to port 443, and TCP ACK to port 80.<br/>
+**ARP Scanning:** On a local network, Nmap uses ARP (Address Resolution Protocol) to map IP addresses to MAC addresses. ARP scans are fast and reliable since ARP requests are not filtered by firewalls on the local subnet.<br/>
+
+**ARP Review:** ARP is used to map IP addresses to physical MAC addresses on a local network. It broadcasts an ARP request for a specific IP, and the device with that IP responds with its MAC address. The mapping is stored in an ARP cache to speed up future requests. ARP is vulnerable to spoofing attacks, where an attacker sends fake ARP messages to associate their MAC address with another IP address, potentially intercepting or disrupting traffic.
+
 ____
 
 **Hashcat**
+
+
 
 ____
 
