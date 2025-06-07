@@ -1,4 +1,4 @@
-SOC Analyst Level 2 interview preparation 2025
+**SOC Analyst Level 2 interview preparation 2025**
 
 I have been reviewing some materials for an interview for a Level 2 SOC Analyst position, leveraging both technical knowledge and practical experience from my time as a SOC Level 1 Analyst. I found this approach to be a valuable way to organize my concepts and reference them as needed. The content I've compiled mainly comes from my GCIH certification materials and various cybersecurity articles from leading companies. Additionally, I used AI to gain further insights. As I prepare for the interview, I'm guessing the questions would be more about real-life scenarios. Getting a good review on these key concepts would work more like a guide and should help me explain the scenarios given and share examples confidently.
 
@@ -14,64 +14,116 @@ Those topics above where a very good start to guide me thorough what to review. 
 ____
 
 
-Persistence 
+**Persistence**
 
 ____
 
-Lateral Movement 
+**Lateral Movement **
 
 ____
 
-Data Exfiltration 
+**Data Exfiltration **
 
 ____
 
-Binary Analysis
+**Binary Analysis**
 
 ____
 
-Malware Analysis
+**Malware Analysis**
 
 ____
 
-SMB
+**SMB**
 
 ____
 
-DNS
+**DNS**
+
+Domain Name System analysis is a crucial aspect of network security monitoring because DNS is a fundamental protocol that translates human-readable domain names into IP addresses, enabling communication over the internet. However, attackers can exploit DNS for malicious purposes, including C2 communication and data exfiltration. 
+
+DNS Tunneling:
+•	Attackers can use DNS tunneling to encapsulate data or commands within DNS queries and responses. This allows them to bypass traditional network defenses by disguising traffic as legitimate DNS queries.
+•	To avoid detection and DNS caching, attackers often generate numerous unique subdomains for their C2 channels. A high volume of unique subdomains can be a strong IOC.
+
+DNS for Network Communication:
+•	DNS is essential for translating domain names into IP addresses. Analyzing DNS logs can provide insights into network traffic patterns and identify unusual or malicious activity.
+
+DNS Analysis Techniques
+
+•	Top DNS queries and abnormal queries: Identify the most frequently queried domains. Sudden spikes or unusual patterns in DNS queries can indicate malicious activity.
+•	Identify High volume FQDN logs: Investigate FQDNs that appear frequently or that are associated with known malicious activity. 
+•	Narrow down which host sent DNS requests: Determine which internal hosts are making suspicious DNS requests. 
+•	Identify failed DNS Lookups logs: Monitor failed DNS lookups, as they may indicate attempts to contact non-existent or newly registered domains.
 
 ____
 
 
-LOLBAS  
+**LOLBAS**
 
 ____
 
-PUPs  
+**PUPs**
 
 ____
 
-PowerShell  
+**PowerShell**  
+
+PowerShell is a powerful scripting language and command-line shell used extensively in Windows environments for task automation, configuration management, and system administration. While it provides significant capabilities for legitimate users, it is also a tool that attackers commonly exploit for malicious activities 
+
+Indicators of suspicious PowerShell activity  
+
+• Encoded Commands:
+Attackers may use the **-EncodedCommand** parameter to obfuscate their scripts, making it harder to detect malicious intent. 
+
+• External Script Downloads:
+Scripts that download and execute external executables from malicious URLs are a common. **Invoke-WebRequest** or **Invoke-Expression** used with URLs.
+
+• Hidden Windows:
+Scripts that use **-WindowStyle Hidden** or **Start-Process** with hidden window options can indicate attempts to avoid detection.
+
+• String manipulation and concatenation:
+Malicious scripts often break down commands into strings and use concatenation to evade detection by static analysis tools.
+
+• External Command Execution:
+PowerShell scripts that call external command-line utilities (e.g., cmd.exe, net.exe) can signify attempts to leverage system utilities for malicious purposes.
+
+• Registry Interrogation:
+Monitoring registry queries and modifications can reveal attempts to establish persistence or gather system information.
+
+• Unusual Scheduled Tasks:
+Creation of unusual or suspicious scheduled tasks can indicate persistence attempts. Check task properties and the last run time for anomalies.
+
+• Log Analysis:
+Use **Get-WinEvent** to review unusual log entries, especially those related to PowerShell script block logging (Event ID 4104) and pipeline execution (Event ID 4103).
+
+Sysinternals Tools for Process and System Analysis
+Process Explorer: Provides detailed information about running processes, including open handles and loaded DLLs. Useful for identifying suspicious processes.
+Process Monitor: Offers real-time monitoring of file system, registry, process, and network activity. It is valuable for identifying abnormal behavior and forensic analysis.
+TCPView: Displays active TCP and UDP connections, helping identify unauthorized network communication.
+Autoruns: Lists auto-start extensibility points (ASEPs), allowing you to identify unusual programs configured to run at startup.
+Sysmon: Provides detailed logging of system events, including process creation, network connections, and file modifications. It is useful for feeding data into SIEM systems for comprehensive monitoring.
+ProcDump: Captures process memory dumps, aiding in malware analysis and understanding the behavior of suspicious processes
 
 ____
 
-Tcpdump
+**Tcpdump**
 
 ____
 
-Nmap
+**Nmap**
 
 ____
 
-Hashcat
+**Hashcat**
 
 ____
 
-Netcat
+**Netcat**
 
 ____
 
-Cyber Kill Chain 
+**Cyber Kill Chain** 
 
 The Cyber Kill Chain was developed by Lockheed Martin and it models the stages of a cyberattack. The seven stages of the cyber kill model demonstrate a specific goal along with a threat actor's path. It is focused more in the progression of attacks:
 
@@ -85,7 +137,7 @@ The Cyber Kill Chain was developed by Lockheed Martin and it models the stages o
 
 ____
 
-MITRE ATT&CK  
+**MITRE ATT&CK**  
 
 https://attack.mitre.org/
 
