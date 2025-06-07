@@ -74,7 +74,11 @@ PowerShell is a powerful scripting language and command-line shell used extensiv
 Indicators of suspicious PowerShell activity  
 
 • Encoded Commands:
-Attackers may use the **-EncodedCommand** parameter to obfuscate their scripts, making it harder to detect malicious intent. 
+Attackers may use the 
+```
+-EncodedCommand
+```
+parameter to obfuscate their scripts, making it harder to detect malicious intent. 
 
 • External Script Downloads:
 Scripts that download and execute external executables from malicious URLs are a common. **Invoke-WebRequest** or **Invoke-Expression** used with URLs.
