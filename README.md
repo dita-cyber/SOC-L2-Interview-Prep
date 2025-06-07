@@ -17,6 +17,56 @@ ____
 
 **Persistence**
 
+Persistence refers to a threat actor's ability to maintain a foothold in a compromised system over time, even after reboots or other system changes. This involves post-exploitation techniques that ensure the attacker can regain access, avoid detection, preserve privileges, and maintain flexibility to reestablish access if needed. 
+
+To assess persistence, I would check for common persistence mechanisms such as registry modifications, scheduled tasks, startup folder entries, and new services that may have been created.
+
+Goals of Persistence
+1.	Regain Access: Ensuring the ability to reconnect to the compromised system.
+2.	Avoid Detection: Implementing methods that are stealthy to avoid being caught by security systems or analysts.
+3.	Preserve Privileges: Maintaining or escalating privileges to perform necessary actions.
+4.	Flexibility to Reestablish Access: Using different methods to re-enter the system if one is blocked or removed.
+Techniques for Achieving Persistence
+1.	Create New Accounts:
+o	Using commands like
+net user /add
+to create new user accounts with administrator privileges to ensure continued access.
+2.	ASEPs (Auto-Start Extensibility Points):
+o	Modifying points in the system where programs are configured to start automatically, such as startup folders, registry run keys, or services.
+3.	Registry Run Keys:
+o	Adding or modifying registry keys that cause programs to execute upon system startup, such as
+HKLM\Software\Microsoft\Windows\CurrentVersion\Run
+.
+4.	Netcat Listeners / Reverse TCP Shells:
+o	Deploying tools like Netcat to listen for incoming connections or establishing reverse shells that call back to the attacker's server.
+5.	Scheduled Tasks / WMI (Windows Management Instrumentation):
+o	Creating scheduled tasks to execute malicious scripts or programs periodically or upon certain events. WMI can be used for more complex event-driven persistence mechanisms.
+6.	Active Directory Exploits (e.g., Golden Ticket):
+o	Utilizing Kerberos exploits, such as the Golden Ticket, to create forged authentication tokens that provide long-term access to AD environments.
+7.	Web Shells:
+o	Compromising a web server and inserting a web shell to provide remote access via HTTP/S, allowing the attacker to execute commands on the server.
+
+
+Event IDs for Monitoring Persistence (Windows)
+| **Event ID** | **Event Name**                                               | **Use Case**                                                                 |
+|--------------|--------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| 4624         | Logon                                                        | Successful logon events. Unusual logons might indicate the use of new or unexpected accounts. |
+| 4634         | Logoff                                                       | Logoff events. Patterns here can be correlated with suspicious logon activities.             |
+| 4672         | Special Privileges Assigned                                  | Indicates privilege escalation by assigning special privileges to new sessions.              |
+| 4732         | Member Added to a Security-Enabled Global Group              | Adding a user to a privileged group could be a sign of persistence setup.                   |
+| 4648         | Logon Using Explicit Credentials                             | May indicate use of stolen credentials.                                                     |
+| 4688         | New Process Created                                          | Reveals execution of potentially malicious programs or scripts.                             |
+| 4697         | Service Installed                                            | Installation of new services, which could be used for persistence.                          |
+| 4768         | Kerberos Authentication Ticket (TGT) Requested               | Unusual TGT requests might indicate forged ticket usage or lateral movement.                |
+ 
+Suspicious IOCs:
+
+
+
+
+
+
+
 ____
 
 **Lateral Movement**
