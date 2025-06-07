@@ -98,7 +98,7 @@ Indicators of suspicious PowerShell activity
 **• Unusual scheduled tasks:** Creation of unusual or suspicious scheduled tasks can indicate persistence attempts. Check task properties and the last run time for anomalies.<br/>
 **• Log analysis:** Use **Get-WinEvent** to review unusual log entries, especially those related to PowerShell script block logging (Event ID 4104) and pipeline execution (Event ID 4103).<br/>
 
-Sysinternals Tools for Process and System Analysis<br/>
+Sysinternals Tools for process and system analysis<br/>
 **Process Explorer:** Provides detailed information about running processes, including open handles and loaded DLLs. Useful for identifying suspicious processes.<br/>
 **Process Monitor:** Offers real-time monitoring of file system, registry, process, and network activity. It is valuable for identifying abnormal behavior and forensic analysis.<br/>
 **TCPView:** Displays active TCP and UDP connections, helping identify unauthorized network communication.<br/>
