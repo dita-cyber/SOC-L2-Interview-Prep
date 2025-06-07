@@ -1,5 +1,5 @@
 
-# SOC Analyst Level 2 interview preparation 2025#
+# SOC Analyst Level 2 interview preparation 2025
 
 I have been reviewing some materials for an interview for a Level 2 SOC Analyst position, leveraging both technical knowledge and practical experience from my time as a SOC Level 1 Analyst. I found this approach to be a valuable way to organize my concepts and reference them as needed. The content I've compiled mainly comes from my GCIH certification materials and various cybersecurity articles from leading companies. Additionally, I used AI to gain further insights. As I prepare for the interview, I'm guessing the questions would be more about real-life scenarios. Getting a good review on these key concepts would work more like a guide and should help me explain the scenarios given and share examples confidently.
 
@@ -68,15 +68,15 @@ Suspicious IOCs:
 
 ____
 
-##**Lateral Movement**
+## **Lateral Movement**
 
 ____
 
-##**Data Exfiltration**
+## **Data Exfiltration**
 
 ____
 
-##**Binary / Malware Analysis**
+## **Binary / Malware Analysis**
 
 **Static Malware Analysis**
 
@@ -154,7 +154,7 @@ Detecting a suspicious PE or ELF file involves analyzing indicators that deviate
 
 ____
 
-##**SMB**
+## **SMB**
 
 SMB is an application-layer network protocol used primarily for providing shared access to files, printers, and other network resources. It also facilitates network browsing and remote administration features. SMB has been around for decades, and its legacy versions, especially SMBv1, have numerous vulnerabilities. These vulnerabilities often become entry points for attacks due to the protocol's complexity allowing to gain initial access and perform exploitation and pivoting activities.
 
@@ -183,7 +183,7 @@ SMB is an application-layer network protocol used primarily for providing shared
 
 ____
 
-##**DNS**
+## **DNS**
 
 Domain Name System analysis is a crucial aspect of network security monitoring because DNS is a fundamental protocol that translates human-readable domain names into IP addresses, enabling communication over the internet. However, attackers can exploit DNS for malicious purposes, including C2 communication and data exfiltration. 
 
@@ -203,7 +203,7 @@ Domain Name System analysis is a crucial aspect of network security monitoring b
 
 ____
 
-##**LOLBAS**
+## **LOLBAS**
 
 Living Off the Land Binaries And Scripts is a technique used by attackers to exploit legitimate system tools and executables to perform malicious activities. This approach allows attackers to bypass security mechanisms such as application whitelisting, intrusion detection systems, and antivirus solutions, as these tools are typically trusted and not flagged as malicious. Attackers use pre-installed system binaries and scripts to execute attacks. These tools are part of the operating system or commonly installed applications, making them less likely to be scrutinized by security systems. 
 
@@ -245,7 +245,7 @@ Summary of each tool:
 **•schtasks.exe:** A command-line utility for creating, deleting, querying, changing, running, or ending scheduled tasks on a Windows system. It is used to automate tasks and manage the Task Scheduler.<br/> 
 ____
 
-##**PowerShell**  
+## **PowerShell**  
 
 PowerShell is a powerful scripting language and command-line shell used extensively in Windows environments for task automation, configuration management, and system administration. While it provides significant capabilities for legitimate users, it is also a tool that attackers commonly exploit for malicious activities 
 
@@ -269,7 +269,7 @@ Sysinternals Tools for process and system analysis<br/>
 **ProcDump:** Captures process memory dumps, aiding in malware analysis and understanding the behavior of suspicious processes.<br/>
 ____
 
-##**PUPs**
+## **PUPs**
 
 Potentially Unwanted Programs are a category of software that, while not overtly malicious like traditional malware, often exhibit behaviors that users find undesirable or intrusive. These programs typically installed alongside legitimate software, usually without explicit user consent. This bundling tactic is common in free software downloads, where users might overlook additional programs being installed. 
 
@@ -297,7 +297,7 @@ PUP common behaviors:<br/>
 
 ____
 
-##**Cyber Kill Chain** 
+## **Cyber Kill Chain** 
 
 The Cyber Kill Chain was developed by Lockheed Martin and it models the stages of a cyberattack. The seven stages of the cyber kill model demonstrate a specific goal along with a threat actor's path. It is focused more in the progression of attacks:
 
@@ -311,7 +311,7 @@ The Cyber Kill Chain was developed by Lockheed Martin and it models the stages o
 
 ____
 
-##**MITRE ATT&CK**  
+## **MITRE ATT&CK**  
 
 https://attack.mitre.org/
 
@@ -364,12 +364,12 @@ From the categories I listed the ones I am focusing to understand the examples b
 
 ____
 
-##**Tcpdump**
+## **Tcpdump**
 
 Command-line packet analysis tool that allows users to capture and examine network traffic. It's widely used by network administrators and security professionals for troubleshooting, network performance analysis, and security auditing. 
 ____
 
-##**Nmap**
+## **Nmap**
 
 Nmap (Network Mapper) is a widely-used open-source tool for network discovery and security auditing.  It includes network discovery and mapping, port scanning, service version detection, and operating system detection capabilities. 
 
@@ -383,13 +383,13 @@ Nmap (Network Mapper) is a widely-used open-source tool for network discovery an
 
 ____
 
-##**Hashcat**
+## **Hashcat**
 
 Password cracking tool through various attack methods. It's known for its speed and flexibility, supporting a wide range of hashing algorithms and running efficiently on both CPU and GPU hardware. 
 
 ____
 
-##**Netcat**
+## **Netcat**
 
 Netcat is a versatile utility used for reading, writing, and transferring data across network connections. It operates in both client and server modes, enabling a wide range of functions from simple data transfers to complex network debugging and security testing.
 
