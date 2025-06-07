@@ -101,26 +101,6 @@ Summary of each tool:
 **•schtasks.exe:** A command-line utility for creating, deleting, querying, changing, running, or ending scheduled tasks on a Windows system. It is used to automate tasks and manage the Task Scheduler.<br/> 
 ____
 
-**PUPs**
-
-Potentially Unwanted Programs are a category of software that, while not overtly malicious like traditional malware, often exhibit behaviors that users find undesirable or intrusive. These programs typically installed alongside legitimate software, usually without explicit user consent. This bundling tactic is common in free software downloads, where users might overlook additional programs being installed. PUPs are often rated as highly malicious in OSINT platforms like VirusTotal for several reasons. While PUPs are not designed to be overtly harmful like traditional malware, their behaviors and characteristics can trigger high threat ratings like:<br/> 
-
-**• Behavioral similarity to malware:** Some PUPs exhibit behaviors similar to malware, such as installing without explicit consent, modifying system settings, or persisting in ways that make them difficult to remove.<br/> 
-**• Bundled with malware:**	PUPs are often distributed through software bundling, and in some cases, they may be bundled with actual malware or serve as a delivery mechanism for more harmful software.<br/>
-**• Privacy violations:** PUPs often collect user data without clear consent, which can be considered a significant privacy violation. This behavior is sometimes flagged as malicious due to its potential for misuse or data leakage.<br/> 
-**• Persistence and evasion techniques:** The use of persistence mechanisms and evasion techniques to avoid detection and removal can cause PUPs to be rated more severely. Techniques such as modifying the registry or creating scheduled tasks are often associated with malicious intent.<br/> 
-**• Reputation and history:** If a particular PUP has a history of being linked to malicious activities or has been used in conjunction with malicious campaigns, OSINT platforms may rate its hashes more critically.<br/> 
-**• Aggressive advertising and monetization:** PUPs that aggressively monetize through intrusive ads or redirect users to potentially harmful sites can be rated as highly malicious due to their negative impact on user experience and potential security risks.<br/> 
-**• Previous reports and community feedback:** Community feedback and previous reports of negative experiences with a PUP can influence its rating. If users frequently report issues or associate the PUP with malicious behavior. Additionally, VirusTotal aggregates results from multiple antivirus vendors. If a PUP is detected by a majority of these vendors as having malicious characteristics, its overall threat rating will be higher.<br/> 
-
-PUP common behaviors:<br/> 
-**• Adware:** Displays intrusive advertisements, often redirecting users to specific websites.<br/> 
-**• Browser hijackers:** Modify browser settings, such as the default search engine or homepage, to redirect traffic to specific sites.<br/> 
-**• Spyware:** Collects user data without explicit consent, potentially leading to privacy violations.<br/> 
-**•	Dialers:** Automatically dial phone numbers, often resulting in high charges, though less common today with the decline of dial-up internet.<br/> 
-
-____
-
 **PowerShell**  
 
 PowerShell is a powerful scripting language and command-line shell used extensively in Windows environments for task automation, configuration management, and system administration. While it provides significant capabilities for legitimate users, it is also a tool that attackers commonly exploit for malicious activities 
@@ -143,22 +123,25 @@ Sysinternals Tools for process and system analysis<br/>
 **Autoruns:** Lists auto-start extensibility points (ASEPs), allowing you to identify unusual programs configured to run at startup.<br/>
 **Sysmon:** Provides detailed logging of system events, including process creation, network connections, and file modifications. It is useful for feeding data into SIEM systems for comprehensive monitoring.<br/>
 **ProcDump:** Captures process memory dumps, aiding in malware analysis and understanding the behavior of suspicious processes.<br/>
-
 ____
 
-**Tcpdump**
+**PUPs**
 
-____
+Potentially Unwanted Programs are a category of software that, while not overtly malicious like traditional malware, often exhibit behaviors that users find undesirable or intrusive. These programs typically installed alongside legitimate software, usually without explicit user consent. This bundling tactic is common in free software downloads, where users might overlook additional programs being installed. PUPs are often rated as highly malicious in OSINT platforms like VirusTotal for several reasons. While PUPs are not designed to be overtly harmful like traditional malware, their behaviors and characteristics can trigger high threat ratings like:<br/> 
 
-**Nmap**
+**• Behavioral similarity to malware:** Some PUPs exhibit behaviors similar to malware, such as installing without explicit consent, modifying system settings, or persisting in ways that make them difficult to remove.<br/> 
+**• Bundled with malware:**	PUPs are often distributed through software bundling, and in some cases, they may be bundled with actual malware or serve as a delivery mechanism for more harmful software.<br/>
+**• Privacy violations:** PUPs often collect user data without clear consent, which can be considered a significant privacy violation. This behavior is sometimes flagged as malicious due to its potential for misuse or data leakage.<br/> 
+**• Persistence and evasion techniques:** The use of persistence mechanisms and evasion techniques to avoid detection and removal can cause PUPs to be rated more severely. Techniques such as modifying the registry or creating scheduled tasks are often associated with malicious intent.<br/> 
+**• Reputation and history:** If a particular PUP has a history of being linked to malicious activities or has been used in conjunction with malicious campaigns, OSINT platforms may rate its hashes more critically.<br/> 
+**• Aggressive advertising and monetization:** PUPs that aggressively monetize through intrusive ads or redirect users to potentially harmful sites can be rated as highly malicious due to their negative impact on user experience and potential security risks.<br/> 
+**• Previous reports and community feedback:** Community feedback and previous reports of negative experiences with a PUP can influence its rating. If users frequently report issues or associate the PUP with malicious behavior. Additionally, VirusTotal aggregates results from multiple antivirus vendors. If a PUP is detected by a majority of these vendors as having malicious characteristics, its overall threat rating will be higher.<br/> 
 
-____
-
-**Hashcat**
-
-____
-
-**Netcat**
+PUP common behaviors:<br/> 
+**• Adware:** Displays intrusive advertisements, often redirecting users to specific websites.<br/> 
+**• Browser hijackers:** Modify browser settings, such as the default search engine or homepage, to redirect traffic to specific sites.<br/> 
+**• Spyware:** Collects user data without explicit consent, potentially leading to privacy violations.<br/> 
+**•	Dialers:** Automatically dial phone numbers, often resulting in high charges, though less common today with the decline of dial-up internet.<br/> 
 
 ____
 
@@ -227,13 +210,21 @@ From the categories I listed the ones I am focusing to understand the examples b
 | Traffic Signaling                 |                                     |                                      |                                    |
 | Valid Accounts                    |                                     |                                      |                                    |
 
- 
+____
 
-
+**Tcpdump**
 
 ____
 
+**Nmap**
 
+____
+
+**Hashcat**
+
+____
+
+**Netcat**
 
 
 
