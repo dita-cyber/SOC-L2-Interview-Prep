@@ -82,6 +82,31 @@ ____
 
 **SMB**
 
+SMB is an application-layer network protocol used primarily for providing shared access to files, printers, and other network resources. It also facilitates network browsing and remote administration features. SMB has been around for decades, and its legacy versions, especially SMBv1, have numerous vulnerabilities. These vulnerabilities often become entry points for attacks due to the protocol's complexity allowing to gain initial access and perform exploitation and pivoting activities.
+
+**SMB key functions:**<br/>
+
+**•	File Sharing:** SMB allows users to read, write, and execute files on remote servers. This is foundational for network file systems and is extensively used in enterprise environments.<br/>
+**•	Authentication:** SMB uses NTLM or Kerberos for user authentication to ensure that only authorized users can access resources.<br/>
+**•	Remote Administration:** It supports remote administration tasks, which can be useful for managing networked computers but also poses security risks if misconfigured.<br/>
+
+**SMB Versions:**<br/>
+
+**•	SMBv1:** Should be disabled due to numerous vulnerabilities. It lacks modern security features and is considered unsafe.<br/>
+**•	SMBv2.1:** Introduced improvements over v1 but still lacks the security features of later versions.<br/>
+**•	SMBv3 (including v3.1.1):** The most recent version includes encryption support and pre-authentication integrity checks, significantly enhancing security.<br/>
+
+**SMB and NTLM**<br/>
+**•	NTLM (NT LAN Manager):** An older authentication protocol used by SMB. It uses a challenge-response mechanism but has vulnerabilities like pass-the-hash and NTLM relay attacks.<br/>
+**•	Security Concerns:** Due to its vulnerabilities, NTLM is not recommended for secure environments. Instead, Kerberos is preferred for its stronger security features.<br/>
+**•	Modern Usage:** While NTLM is still used for compatibility with older systems, Microsoft recommends using Kerberos, which is more secure and supports features like mutual authentication.<br/>
+
+**Famous CVEs:**<br/>
+**EternalBlue (CVE-2017-0144):** A critical vulnerability in SMBv1 that was exploited by the WannaCry ransomware. It allows remote code execution and has been used in numerous attacks.<br/>
+**WannaCry:** A ransomware attack that used EternalBlue to spread rapidly across networks.<br/>
+**SMBGhost (CVE-2020-0796):** A vulnerability in SMBv3 that could allow attackers to execute code remotely on vulnerable systems.<br/>
+**SMBleed (CVE-2020-1206):** A related vulnerability to SMBGhost that leaks kernel memory, potentially allowing information disclosure.<br/>
+
 ____
 
 **DNS**
