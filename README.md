@@ -32,6 +32,52 @@ ____
 
 **Malware Analysis**
 
+**Static Malware Analysis**
+
+Static analysis involves examining malware without executing it. This method focuses on analyzing the file's structure, code, and metadata to understand its functionality and potential impact.
+
+**•	File Hashing:** Calculate hashes (e.g., MD5, SHA-256) for the malware file to check against known malware databases.
+**•	Disassembly:** Use tools like IDA Pro or Ghidra to disassemble the code and understand its logic.
+**•	String Analysis**
+**•	Metadata Examination:** Analyze the file's metadata, such as PE headers in Windows executables, to identify compilation details and potential anomalies.
+
+In PowerShell, you can calculate hashes using:
+```
+Get-FileHash -Algorithm SHA256 -Path $filePath
+```
+In Linux, you can use built-in commands to calculate file hashes:
+```
+md5sum
+sha1sum
+sha256sum
+md5sum /path/to/your/file
+```
+
+**Dynamic Malware Analysis**
+
+Dynamic analysis involves executing the malware in a controlled environment (sandbox) to observe its behavior and interactions with the system.
+
+**•	Sandboxing:**  Use sandbox environments like Cuckoo Sandbox or Any.Run to safely execute the malware and monitor its behavior.<br/>
+**•	Network Monitoring:**  Observe network connections made by the malware using tools like Wireshark or Fiddler.<br/>
+**•	Process Monitoring:**  Use tools like Process Monitor (Procmon) to track file, registry, and process activities.<br/>
+**•	API Monitoring:**  Use tools like API Monitor to track system calls made by the malware.<br/>
+
+IOCs for Dynamic Analysis:<br/>
+**•	Network Connections:**  Unexpected outbound connections to known malicious domains or IP addresses.<br/>
+**•	File and Registry Changes:**  Creation of new files or registry keys, especially in startup locations.<br/>
+**• Process Activity:**  Unusual processes spawned by the malware, often with suspicious names or paths.<br/>
+
+**Other techniques:**
+
+**•	VM Snapshot:** Primarily used in dynamic malware analysis. It allows analysts to quickly revert to a clean state of a virtual machine, which is useful for observing the behavior of malware without permanent changes to the system.<br/>
+
+**•	Regshot:** Used in dynamic malware analysis. It takes snapshots of the registry before and after running a program, allowing analysts to compare changes and understand what modifications the malware makes to the system registry.<br/>
+
+**•	Process Monitor:** Used in dynamic malware analysis. It monitors and logs real-time system activity, such as file system, registry, and process operations, helping analysts observe the behavior of malware as it executes.<br/>
+
+**•	IDA Pro:** Used in static malware analysis. It is a disassembler and debugger that helps reverse engineers analyze the code structure and logic of a binary without executing it, enabling them to understand the functionality of malware.<br/>
+
+**•	Ghidra:** Also used in static malware analysis. It is a reverse engineering tool that provides capabilities for disassembling, decompiling, and analyzing binaries to understand the code's behavior and logic without execution.<br/>
 ____
 
 **SMB**
