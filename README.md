@@ -233,12 +233,32 @@ ____
 
 **Hashcat**
 
-
+Password cracking tool through various attack methods. It's known for its speed and flexibility, supporting a wide range of hashing algorithms and running efficiently on both CPU and GPU hardware. 
 
 ____
 
 **Netcat**
 
+Netcat is a versatile utility used for reading, writing, and transferring data across network connections. It operates in both client and server modes, enabling a wide range of functions from simple data transfers to complex network debugging and security testing.
+
+**•	Client Mode:** Netcat can initiate connections to remote hosts, making it useful for testing server responses and sending data.<br/>
+
+**•	Listen Mode:** It can listen for incoming connections, turning your machine into a server, which is helpful for receiving data or setting up a basic TCP/UDP server.<br/>
+
+**•	Data Transfer:**	Netcat can transfer files and data streams between hosts, making it useful for simple file transfers or as a rudimentary backup solution.<br/>
+
+**•	Port Scanning:** Although not as sophisticated as dedicated port scanners like Nmap, Netcat can scan open ports on a target host, providing a quick overview of available services.<br/>
+
+Additional information related to security info
+
+**•	Backdoors and Relays:**<br/>
+
+- Attackers can use Netcat to create backdoors by setting it to listen mode on a target system, allowing them to connect back at any time.<br/>
+- It can also be used to create relays, which are one-way connections that bypass firewalls and make it difficult to trace the origin of an attack or connection.<br/>
+- A single Netcat relay can be used to pivot through multiple hosts, helping attackers move laterally within a network.<br/>
+
+**•	Named Pipes:**<br/>
+- In Windows environments, attackers may use named pipes with Netcat to obtain responses from a target. Named pipes allow inter-process communication, which can be exploited to relay data between processes on a compromised host. <br/>
 
 
 
