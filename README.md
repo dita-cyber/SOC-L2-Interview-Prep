@@ -4,7 +4,7 @@ I have been reviewing some materials for an interview for a Level 2 SOC Analyst 
 
 The material is mainly focused for a MSSP environment and as an L2, I should be familiar with answering the common investigative questions for endpoint related incidents, like:
 
-•	How something got to the asset - Initial Access Vector<br/>  
+•	How something got to the asset - Initial Access Vector<br/>
 •	Is it still there? - Persistence<br/>
 •	Where did they go? - Lateral Movement<br/>
 •	Prove that something was taken - Data Exfiltration<br/>
