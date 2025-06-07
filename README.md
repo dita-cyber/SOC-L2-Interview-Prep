@@ -249,12 +249,11 @@ Netcat is a versatile utility used for reading, writing, and transferring data a
 Additional information related to security info
 
 **•	Backdoors and Relays:**<br/>
-- Attackers can use Netcat to create backdoors by setting it to listen mode on a target system, allowing them to connect back at any time.<br/>
-- It can also be used to create relays, which are one-way connections that bypass firewalls and make it difficult to trace the origin of an attack or connection.<br/>
-- A single Netcat relay can be used to pivot through multiple hosts, helping attackers move laterally within a network.<br/>
-
+Attackers can use Netcat to create backdoors by setting it to listen mode on a target system, allowing them to connect back at any time.<br/>
+It can also be used to create relays, which are one-way connections that bypass firewalls and make it difficult to trace the origin of an attack or connection.<br/>
+A single Netcat relay can be used to pivot through multiple hosts, helping attackers move laterally within a network.<br/>
 **•	Named Pipes:**<br/>
-- In Windows environments, attackers may use named pipes with Netcat to obtain responses from a target. Named pipes allow inter-process communication, which can be exploited to relay data between processes on a compromised host. <br/>
+In Windows environments, attackers may use named pipes with Netcat to obtain responses from a target. Named pipes allow inter-process communication, which can be exploited to relay data between processes on a compromised host. <br/>
 
 
 
