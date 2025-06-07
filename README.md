@@ -50,6 +50,7 @@ Event IDs for Monitoring Persistence (Windows)
 | 4688         | New Process Created                                          | Reveals execution of potentially malicious programs or scripts.                             |
 | 4697         | Service Installed                                            | Installation of new services, which could be used for persistence.                          |
 | 4768         | Kerberos Authentication Ticket (TGT) Requested               | Unusual TGT requests might indicate forged ticket usage or lateral movement.                |
+| 7045         | New Windows service is installed on a system                 | New Windows service is installed on a system                            |
  
 Suspicious IOCs:
 
@@ -83,7 +84,7 @@ DLLs with mismatched names or hashes<br/>
 
 • Service Creation / Modification<br/>
 Use of sc.exe create or PowerShell New-Service<br/>
-Suspicious Event ID 7045 entries -  New Windows service is installed on a system <br/>
+Suspicious Event IDs <br/>
 
 • Unusual Parent-Child Process Relationships<br/>
 explorer.exe → cmd.exe or powershell.exe<br/>
