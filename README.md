@@ -1,4 +1,4 @@
-**SOC Analyst Level 2 interview preparation 2025**
+![image](https://github.com/user-attachments/assets/741402c3-b093-4bd2-87c0-b97e0b8ac28b)**SOC Analyst Level 2 interview preparation 2025**
 
 I have been reviewing some materials for an interview for a Level 2 SOC Analyst position, leveraging both technical knowledge and practical experience from my time as a SOC Level 1 Analyst. I found this approach to be a valuable way to organize my concepts and reference them as needed. The content I've compiled mainly comes from my GCIH certification materials and various cybersecurity articles from leading companies. Additionally, I used AI to gain further insights. As I prepare for the interview, I'm guessing the questions would be more about real-life scenarios. Getting a good review on these key concepts would work more like a guide and should help me explain the scenarios given and share examples confidently.
 
@@ -26,11 +26,7 @@ ____
 
 ____
 
-**Binary Analysis**
-
-____
-
-**Malware Analysis**
+**Binary / Malware Analysis**
 
 **Static Malware Analysis**
 
@@ -78,6 +74,34 @@ IOCs for Dynamic Analysis:<br/>
 **•	IDA Pro:** Used in static malware analysis. It is a disassembler and debugger that helps reverse engineers analyze the code structure and logic of a binary without executing it, enabling them to understand the functionality of malware.<br/>
 
 **•	Ghidra:** Also used in static malware analysis. It is a reverse engineering tool that provides capabilities for disassembling, decompiling, and analyzing binaries to understand the code's behavior and logic without execution.<br/>
+
+Step by Step approach for binary analysis:
+
+Perform initial assessment analyzing the file type and format and determine which type of binary it is (e.g., executable, library) and format (e.g., PE for Windows, ELF for Linux).
+Followed by static analysis via hash calculation and analysis against OSINT databases like VirusTotal. 
+Analyze file header and metadata inspection
+Another option is to use a disassembler like IDA Pro or Ghidra allowing to inspect the logic without executing it 
+A more advanced option is to perform dynamic analysis via behavioral investigation via sandbox execution, process monitoring,	network traffic analysis. Using a debugger also could give insights on runtime behavior and to trace function calls, like identifing dlls that were injected into a process.  
+Moreover, memory analysis is another option to inspect the memory of the running process using tools like Volatility to uncover hidden data or injected code.
+
+Additional information:
+ 
+PE (Portable Executable) and ELF (Executable and Linkable Format) are file formats used by Windows and Linux operating systems, respectively, to store executable binaries, libraries, and other related data. These formats define how the system loads and executes programs.
+
+The PE format is used for executables (.exe), object code, and DLLs (Dynamic Link Libraries) on Windows. It includes headers and sections that define the binary's layout and behavior. 
+
+ELF (Executable and Linkable Format) for Linux is used for executables, object files, shared libraries, and core dumps on Unix-like systems, including Linux.
+ 
+Detecting a suspicious PE or ELF file involves analyzing indicators that deviate from typical behavior or characteristics expected of benign executables. Here are examples for each format that might raise suspicion:
+
+**•	Unexpected or Unknown Source**
+**•	Executable in Unexpected Locations**
+**•	Abnormal File Attributes**
+**•	Packers and Obfuscation**
+**•	Suspicious API calls**
+**•	Unexpected network connections**
+**•	Establish persistence by modifying the registry or creating scheduled tasks / cron jobs**
+
 ____
 
 **SMB**
