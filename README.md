@@ -436,6 +436,8 @@ ____
 
 ## **Cyber Kill Chain** 
 
+https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html
+
 The Cyber Kill Chain was developed by Lockheed Martin and it models the stages of a cyberattack. The seven stages of the cyber kill model demonstrate a specific goal along with a threat actor's path. It is focused more in the progression of attacks:
 
 **1.	Reconnaissance:** The attacker gathers information about the target, such as network structure, vulnerabilities, and personnel details.<br/>
