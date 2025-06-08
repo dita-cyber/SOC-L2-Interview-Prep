@@ -162,7 +162,7 @@ ____
 
 ## **Data Exfiltration**<br/>
 
-To confirm data exfiltration, I would analyze network logs for large data transfers to external IP addresses and protocol analysis for HTTP, HTTPS, FTP, and DNS. I would also examine endpoint logs and system changes for signs of data packaging or compression activities. Reviewing firewall logs for unusual outbound traffic patterns can provide evidence of exfiltration. Tools like DLP (Data Loss Prevention) can be used to track sensitive data movement and validate exfiltration attempts.
+To investigate data exfiltration alerts, I would analyze network logs for large data transfers to external IP addresses and protocol analysis for HTTP, HTTPS, FTP, and DNS. I would also examine endpoint logs and system changes for signs of data packaging or compression activities. Reviewing firewall logs for unusual outbound traffic patterns can provide evidence of exfiltration. DLP can be used to track sensitive data movement and validate exfiltration attempts.
 
 **Data Exfiltration vs. Data Leakage vs. Data Breach**<br/>
 
