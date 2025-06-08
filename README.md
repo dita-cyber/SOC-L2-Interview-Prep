@@ -1,9 +1,7 @@
 
 # SOC Analyst Level 2 interview preparation 2025
 
-Lateral movement is when an attacker, after gaining initial access to a system, moves across the network to find and access other systems, accounts, or data. They do this to escalate privileges, maintain persistence, or reach their target (like a domain controller or sensitive data).
-
-The material is mainly focused for a MSSP environment and as an L2, I should be familiar with answering the common investigative questions related to:
+I am currently preparing for an interview for a Level 2 SOC Analyst position. I've organized and reviewed key concepts from my GCIH certification materials and articles from leading cybersecurity vendors. Additionally, I have leveraged AI to gain deeper insights and enhance the key points of my study guide. The material is mainly focused for a MSSP environment and as an L2, I should be familiar with answering the common investigative questions related to:
 
 •	How something got to the asset - Initial Access Vector<br/>
 •	Is it still there? - Persistence<br/>
