@@ -327,6 +327,8 @@ Summary of each tool:
 
 **• mshta.exe:** A tool that executes Microsoft HTML Applications (HTA) files. HTA files are HTML-based applications that can run scripts, making mshta.exe a common vector for executing scripts on Windows.<br/> 
 
+MSHTA includes both mshta.exe and its underlying host DLL, mshtml.dll, which can be executed directly as an alternative through rundll32.exe. Adversaries might consider abusing mshta because aside from it being an already built-in utility, it supports the execution of arbitrary VBScript or jScript code either from within a file, executed inline on the command line, or retrieved directly from a malicious URL. It also allows for creative packaging in malicious payloads where HTA content can be stuffed into nearly any existing file format without invalidating an otherwise legitimate file. In fact, it's even possible to embed HTA content into signed files without invalidating their signature, also making it a target for phishing payloads. The main trend currently is the abuse of MSHTA to deliver infostealer malware like LummaC2 and Vidar. A good indicator is that if HTA content is executed from within the context of rundll32.exe, it is almost guaranteed to be malicious activity.
+
 **• regsvr32.exe:** A command-line utility used to register and unregister DLLs and ActiveX controls in the Windows Registry. It is frequently used in application installation and configuration processes.<br/> 
 
 **• rundll32.exe:** A system utility that allows the execution of DLL functions from the command line. It is often used to call specific functions within DLLs, enabling the automation of various tasks.<br/>
