@@ -8,7 +8,7 @@ I am currently preparing for an interview for a Level 2 SOC Analyst position. I'
 •	Where did they go? - Lateral Movement<br/>
 •	Prove that something was taken - Data Exfiltration<br/>
 
-Those topics above where a very good start to guide me thorough what to review. Additionally, I added more topics as I was reviewing and remembering content that I already knew but needed a refresh or a more structure understanding to be able to explain. 
+Those topics above are a good start to guide me thorough what to review. Additionally, I added more topics as I was reviewing and remembering content that I already knew but needed a refresh or a more structure understanding to be able to explain. 
 
 ____
 
