@@ -12,6 +12,34 @@ Those topics above where a very good start to guide me thorough what to review. 
 
 ____
 
+How I approach alert investigation and escalation (MSSP)
+
+When I receive an alert, the first thing I do is review the metadata—I look at the source and destination IPs, the timestamp, severity level, and the specific rule that triggered the alert. This gives me a quick sense of what I’m dealing with.
+
+Next, I check for duplication. I ask myself: Is this part of a known campaign? Has this alert been escalated before? If so, what was the outcome, and what does the client expect in similar cases? Sometimes, alerts are tied to testing activity or temporary changes, so I verify whether this is expected behavior or something that needs further attention. I then gather initial context—what system or user is involved, and how critical is it? For example, if the alert involves a domain controller or a high-privilege user like an executive, I treat it with higher urgency. I also check for IOCs and correlate them with other alerts previously observed and OSINT sources.
+
+If I determine that the alert does not warrant escalation, I still document everything thoroughly. I write detailed closure notes that include:
+
+- A summary of what happened<br/>
+- Technical details and tools I used during the investigation<br/>
+- OSINT data and log analysis<br/>
+- My rationale for closing the alert, backed by evidence<br/>
+- Client guidance<br/>
+
+If the alert does require escalation, I open a case and follow these steps for the report:
+
+- Set incident severity and category<br/>
+- Summary of the incident and what happened in a short and clear sentence<br/> 
+- I describe how I investigated it, which tools I used, and what logs or tables I analyzed.<br/>
+- I include all relevant technical information: IOCs, affected hosts and users, timelines, and supporting data like commands, OSINT data<br/>
+- I assess the impact of the incident: what systems or users were affected, and what the outcome was<br/>
+- I provide recommendations for containment, remediation, and prevention<br/>
+- Senior analyst peer review to check for investigation accuracy<br/>
+
+If the client has approved specific remediation actions, I double-check that the scenario fits the approval. Then I carry out the appropriate steps, like isolating a host or blacklisting an IP or hash. I also document what actions were taken. Throughout the process, I always keep in mind the criticality of the asset or user involved. Knowing whether I’m dealing with a domain controller or a C-level executive’s machine helps me understand the potential impact of the incident and tailor my response accordingly.
+
+-----
+
 ## **Persistence**
 
 Persistence refers to a threat actor's ability to maintain a foothold in a compromised system over time, even after reboots or other system changes. This involves post-exploitation techniques that ensure the attacker can regain access, avoid detection, preserve privileges, and maintain flexibility to reestablish access if needed. 
