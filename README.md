@@ -24,7 +24,7 @@ To assess persistence, I would check for common persistence mechanisms such as r
 • Preserve Privileges: Maintaining or escalating privileges to perform necessary actions.<br/>
 • Flexibility to Reestablish Access: Using different methods to re-enter the system if one is blocked or removed.<br/>
 
-**Techniques for Achieving Persistence**
+**Techniques for Achieving Persistence**<br/>
 • Create New Accounts: net user /add to create new user accounts with administrator privileges to ensure continued access.<br/>
 • ASEPs (Auto-Start Extensibility Points): Modifying points in the system where programs are configured to start automatically, such as startup folders, registry run keys, or services.<br/>
 •	Registry Run Keys: Adding or modifying registry keys that cause programs to execute upon system startup:
