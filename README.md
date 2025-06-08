@@ -251,6 +251,14 @@ Detecting a suspicious PE or ELF file involves analyzing indicators that deviate
 
 ____
 
+## **Analyzing Phishing Alerts**
+
+Phishing is a type of cyberattack where attackers impersonate legitimate entities to trick users into revealing sensitive information (like credentials or financial data) or to deliver malware. It often comes via email but can also occur through SMS (smishing), voice calls (vishing), or social media.
+
+My approach to phishing analysis begins with a thorough examination of email logs and metadata. I start by verifying the sender's domain using OSINT tools such as Cisco Talos and VirusTotal to determine if it has been flagged as malicious. I then analyze the sender's IP address through similar reputation services to assess its trustworthiness. Next, I inspect the email headers and content using tools like EML Analyzer and MXToolbox, checking for proper SPF, DKIM, and DMARC signatures to validate the authenticity of the message. I also extract and evaluate any embedded URLs, scanning them with OSINT platforms and detonating them in sandbox environments to identify potential threats. If any indicators are confirmed as suspicious or malicious, I take action by blacklisting the domain, sender IP, and URLs. Additionally, I search for evidence of user interaction, such as URL clicks, and identify all recipients or senders of similar emails based on subject and sender patterns. If necessary, I initiate a purge of all related emails across the environment to contain the threat and prevent further compromise.
+
+____
+
 ## **SMB**
 
 SMB is an application-layer network protocol used primarily for providing shared access to files, printers, and other network resources. It also facilitates network browsing and remote administration features. SMB has been around for decades, and its legacy versions, especially SMBv1, have numerous vulnerabilities. These vulnerabilities often become entry points for attacks due to the protocol's complexity allowing to gain initial access and perform exploitation and pivoting activities.
