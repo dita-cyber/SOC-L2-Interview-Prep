@@ -251,7 +251,7 @@ Detecting a suspicious PE or ELF file involves analyzing indicators that deviate
 
 ____
 
-## **Analyzing Phishing Alerts**
+## **Phishing Analysis**
 
 Phishing is a type of cyberattack where attackers impersonate legitimate entities to trick users into revealing sensitive information (like credentials or financial data) or to deliver malware. It often comes via email but can also occur through SMS (smishing), voice calls (vishing), or social media.
 
