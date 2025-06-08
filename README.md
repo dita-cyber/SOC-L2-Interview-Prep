@@ -114,13 +114,6 @@ Suspicious Event IDs <br/>
 explorer.exe → cmd.exe or powershell.exe<br/>
 svchost.exe → unknown binaries<br/>
 
-• Logon Scripts / Group Policy Abuse<br/>
-Modifications to:<br/>
-UserInit, Shell, or Logon scripts in registry<br/>
-GPOs that launch scripts or executables<br/>
-
-• Binary Planting / Path Interception<br/>
-Malicious binaries placed in directories earlier in the system PATH<br/>
 ____
 
 ## **Lateral Movement**
