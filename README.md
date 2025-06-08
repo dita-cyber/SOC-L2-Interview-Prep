@@ -305,6 +305,7 @@ ____
 Living Off the Land Binaries And Scripts is a technique used by attackers to exploit legitimate system tools and executables to perform malicious activities. This approach allows attackers to bypass security mechanisms such as application whitelisting, intrusion detection systems, and antivirus solutions, as these tools are typically trusted and not flagged as malicious. Attackers use pre-installed system binaries and scripts to execute attacks. These tools are part of the operating system or commonly installed applications, making them less likely to be scrutinized by security systems. 
 
 https://lolbas-project.github.io/   
+https://gtfobins.github.io/
 
 Commonly Used LOLBAS Tools: 
 
