@@ -12,7 +12,7 @@ Those topics above where a very good start to guide me thorough what to review. 
 
 ____
 
-## **How I approach alert investigation and escalation (MSSP)**
+## **Investigation and Escalation (MSSP)**
 
 When I receive an alert, the first thing I do is review the metadata—I look at the source and destination IPs, the timestamp, severity level, and the specific rule that triggered the alert. This gives me a quick sense of what I’m dealing with. Next, I check for duplication. I ask myself: Is this part of a known campaign? Has this alert been escalated before? If so, what was the outcome, and what does the client expect in similar cases? Sometimes, alerts are tied to testing activity or temporary changes, so I verify whether this is expected behavior or something that needs further attention. I then gather initial context—what system or user is involved, and how critical is it? For example, if the alert involves a domain controller or a high-privilege user like an executive, I treat it with higher urgency. I also check for IOCs and correlate them with other alerts previously observed and OSINT sources.
 
