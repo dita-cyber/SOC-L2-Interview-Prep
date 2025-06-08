@@ -173,20 +173,20 @@ To investigate data exfiltration alerts, I would analyze network logs for large 
 **Data Breach** encompasses a broader category of security incidents where unauthorized access to protected information occurs. It can result from either exfiltration or leakage and includes any incident involving unauthorized disclosure, loss of control, or data compromise.
 
 **How to Detect Data Exfiltration**<br/>
-•	Monitoring DNS queries<br/>
-•	Monitor suspicious file compression or encryption<br/>
-•	Analyzing outbound email traffic<br/>
-•	Tracking file access patterns that involves file extensions and large file transfers<br/>
-•	Implementing data loss prevention (DLP) solutions: DLP systems can actively monitor and restrict the movement of sensitive data, alerting security teams when potential exfiltration attempts are detected<br/>
-•	Employing UEBA (User and entity behavior analytics) tools to establish a baseline of normal user activity, alerting teams to deviations that could signify malicious intent<br/>
+•	Monitoring DNS queries.<br/>
+•	Monitor suspicious file compression or encryption.<br/>
+•	Analyzing outbound email traffic.<br/>
+•	Tracking file access patterns that involves file extensions and large file transfers.<br/>
+•	Implementing data loss prevention (DLP) solutions: DLP systems can actively monitor and restrict the movement of sensitive data, alerting security teams when potential exfiltration attempts are detected.<br/>
+•	Employing UEBA (User and entity behavior analytics) tools to establish a baseline of normal user activity, alerting teams to deviations that could signify malicious intent.<br/>
 
 **Suspicious IOCs:**<br/>
 
-•	Suspicious file compression or encryption<br/> 
-• Monitor beaconing behavior - Regular, periodic outbound connections<br/> 
-• Use of command-line tools for transfer - Use of curl, wget, ftp, scp, Invoke-WebRequest, or bitsadmin<br/> 
-• Unusual locations - Sensitive files copied to temp folders, recycle bin, or hidden directories before transfer<br/> 
-• Excessive file access or copying - User accessing or copying large numbers of files in a short time from file shares or sensitive directories<br/> 
+•	Suspicious file compression or encryption.<br/> 
+• Monitor beaconing behavior - Regular, periodic outbound connections.<br/> 
+• Use of command-line tools for transfer - Use of curl, wget, ftp, scp, Invoke-WebRequest, or bitsadmin.<br/> 
+• Unusual locations - Sensitive files copied to temp folders, recycle bin, or hidden directories before transfer.<br/> 
+• Excessive file access or copying - User accessing or copying large numbers of files in a short time from file shares or sensitive directories.<br/> 
 
 ____
 
@@ -241,30 +241,29 @@ IOCs for Dynamic Analysis:<br/>
 
 Step by Step approach for binary analysis:
 
-Perform initial assessment analyzing the file type and format and determine which type of binary it is (e.g., executable, library) and format (e.g., PE for Windows, ELF for Linux).
-Followed by static analysis via hash calculation and analysis against OSINT databases like VirusTotal. 
-Analyze file header and metadata inspection
-Another option is to use a disassembler like IDA Pro or Ghidra allowing to inspect the logic without executing it 
-A more advanced option is to perform dynamic analysis via behavioral investigation via sandbox execution, process monitoring,	network traffic analysis. Using a debugger also could give insights on runtime behavior and to trace function calls, like identifing dlls that were injected into a process.  
-Moreover, memory analysis is another option to inspect the memory of the running process using tools like Volatility to uncover hidden data or injected code.
+- Perform initial assessment analyzing the file type and format and determine which type of binary it is (e.g., executable, library) and format (e.g., PE for Windows, ELF for Linux)<br/>
+- Followed by static analysis via hash calculation and analysis against OSINT databases like VirusTotal. Analyze file header and metadata inspection<br/>
+- Another option is to use a disassembler like IDA Pro or Ghidra allowing to inspect the logic without executing it<br/>
+- A more advanced option is to perform dynamic analysis via behavioral investigation via sandbox execution, process monitoring,	network traffic analysis<br/>
+- Using a debugger also could give insights on runtime behavior and to trace function calls, like identifing dlls that were injected into a process<br/>
+- Moreover, memory analysis is another option to inspect the memory of the running process using tools like Volatility to uncover hidden data or injected code<br/>
 
 Additional information:
  
 PE (Portable Executable) and ELF (Executable and Linkable Format) are file formats used by Windows and Linux operating systems, respectively, to store executable binaries, libraries, and other related data. These formats define how the system loads and executes programs.
 
-The PE format is used for executables (.exe), object code, and DLLs (Dynamic Link Libraries) on Windows. It includes headers and sections that define the binary's layout and behavior. 
-
-ELF (Executable and Linkable Format) for Linux is used for executables, object files, shared libraries, and core dumps on Unix-like systems, including Linux.
+- PE format is used for executables (.exe), object code, and DLLs (Dynamic Link Libraries) on Windows. It includes headers and sections that define the binary's layout and behavior<br/>
+- ELF (Executable and Linkable Format) for Linux is used for executables, object files, shared libraries, and core dumps on Unix-like systems, including Linux<br/>
  
 Detecting a suspicious PE or ELF file involves analyzing indicators that deviate from typical behavior or characteristics expected of benign executables. Here are examples for each format that might raise suspicion:
 
-**•	Unexpected or Unknown Source**
-**•	Executable in Unexpected Locations**
-**•	Abnormal File Attributes**
-**•	Packers and Obfuscation**
-**•	Suspicious API calls**
-**•	Unexpected network connections**
-**•	Establish persistence by modifying the registry or creating scheduled tasks / cron jobs**
+**•	Unexpected or Unknown Source**<br/>
+**•	Executable in Unexpected Locations**<br/>
+**•	Abnormal File Attributes**<br/>
+**•	Packers and Obfuscation**<br/>
+**•	Suspicious API calls**<br/>
+**•	Unexpected network connections**<br/>
+**•	Establish persistence by modifying the registry or creating scheduled tasks / cron jobs**<br/>
 
 ____
 
