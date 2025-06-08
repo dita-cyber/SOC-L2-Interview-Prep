@@ -1,7 +1,7 @@
 
 # SOC Analyst Level 2 interview preparation 2025
 
-I have been reviewing some materials for an interview for a Level 2 SOC Analyst position, leveraging both technical knowledge and practical experience from my time as a SOC Level 1 Analyst. I found this approach to be a valuable way to organize my concepts and reference them as needed. The content I've compiled mainly comes from my GCIH certification materials and various cybersecurity articles from leading companies. Additionally, I used AI to gain further insights. As I prepare for the interview, I'm guessing the questions would be more about real-life scenarios. Getting a good review on these key concepts would work more like a guide and should help me explain the scenarios given and share examples confidently.
+Lateral movement is when an attacker, after gaining initial access to a system, moves across the network to find and access other systems, accounts, or data. They do this to escalate privileges, maintain persistence, or reach their target (like a domain controller or sensitive data).
 
 The material is mainly focused for a MSSP environment and as an L2, I should be familiar with answering the common investigative questions related to:
 
@@ -101,7 +101,7 @@ ____
 
 ## **Lateral Movement**
 
-After gaining initial access to a network, the attacker moves through the network to access additional systems and data. This movement allows attackers to expand their control and escalate privileges, often in pursuit of high-value targets such as domain controllers or sensitive data. Investigating lateral movement involves analyzing network traffic and system logs for signs of credential theft, remote access, and unauthorized connections. I would look for unusual patterns such as repeated login attempts, use of remote desktop protocols, and abnormal network shares access
+Lateral movement is when an attacker, after gaining initial access to a system, moves across the network to find and access other systems, accounts, or data. They do this to escalate privileges, maintain persistence, or reach their target (like a domain controller or sensitive data).
 
 **Stages of lateral movement**<br/>
 
