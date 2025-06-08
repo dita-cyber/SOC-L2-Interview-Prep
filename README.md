@@ -12,7 +12,7 @@ Those topics above where a very good start to guide me thorough what to review. 
 
 ____
 
-How I approach alert investigation and escalation (MSSP)
+## **How I approach alert investigation and escalation (MSSP)**
 
 When I receive an alert, the first thing I do is review the metadata—I look at the source and destination IPs, the timestamp, severity level, and the specific rule that triggered the alert. This gives me a quick sense of what I’m dealing with.
 
