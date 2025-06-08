@@ -27,12 +27,12 @@ If I determine that the alert does not warrant escalation, I still document ever
 If the alert does require escalation, I open a case and follow these steps for the report:
 
 - Set incident severity and category<br/>
-- Summary of the incident and what happened in a short and clear sentence<br/> 
-- I describe how I investigated it, which tools I used, and what logs or tables I analyzed.<br/>
-- I include all relevant technical information: IOCs, affected hosts and users, timelines, and supporting data like commands, OSINT data<br/>
-- I assess the impact of the incident: what systems or users were affected, and what the outcome was<br/>
-- I provide recommendations for containment, remediation, and prevention<br/>
-- Senior analyst peer review to check for investigation accuracy<br/>
+- Summarize the incident and what happened in a short and clear sentence<br/> 
+- Describe how I investigated it, which tools I used, and what logs or tables I analyzed.<br/>
+- Include all relevant technical information: IOCs, affected hosts and users, timelines, and supporting data like commands, OSINT data<br/>
+- Assess the impact of the incident: what systems or users were affected, and what the outcome was<br/>
+- Provide recommendations for containment, remediation, and prevention<br/>
+- Review notes and correct layout and typos followed by senior analyst peer review to check investigation accuracy<br/>
 
 If the client has approved specific remediation actions, I double-check that the scenario fits the approval. Then I carry out the appropriate steps, like isolating a host or blacklisting an IP or hash. I also document what actions were taken. Throughout the process, I always keep in mind the criticality of the asset or user involved. Knowing whether I’m dealing with a domain controller or a C-level executive’s machine helps me understand the potential impact of the incident and tailor my response accordingly.
 
