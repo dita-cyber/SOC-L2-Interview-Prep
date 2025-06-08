@@ -155,15 +155,15 @@ To confirm data exfiltration, I would analyze network logs for large data transf
 
 **Data Breach** encompasses a broader category of security incidents where unauthorized access to protected information occurs. It can result from either exfiltration or leakage and includes any incident involving unauthorized disclosure, loss of control, or data compromise.
 
-**How to Detect Data Exfiltration**
+**How to Detect Data Exfiltration**<br/>
 •	Monitoring DNS queries<br/>
-•	Monitor suspicious file compression or encryption
+•	Monitor suspicious file compression or encryption<br/>
 •	Analyzing outbound email traffic<br/>
-•	Tracking file access patterns that involves file extensions and large file transfers<br/>  
+•	Tracking file access patterns that involves file extensions and large file transfers<br/>
 •	Implementing data loss prevention (DLP) solutions: DLP systems can actively monitor and restrict the movement of sensitive data, alerting security teams when potential exfiltration attempts are detected<br/>
 •	Employing UEBA (User and entity behavior analytics) tools to establish a baseline of normal user activity, alerting teams to deviations that could signify malicious intent<br/>
 
-**Suspicious IOCs:** 
+**Suspicious IOCs:**<br/>
 
 •	Suspicious file compression or encryption<br/> 
 • Monitor beaconing behavior - Regular, periodic outbound connections<br/> 
