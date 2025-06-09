@@ -164,6 +164,41 @@ Lateral movement is more about maintaining a low profile while gathering credent
 
 https://jpcertcc.github.io/ToolAnalysisResultSheet/
 
+## **RDP**<br/>
+
+RDP is a protocol designed to provide graphical remote access to a computer, allowing users to interact with the desktop environment as if they were physically present at the machine. RDP has built-in security features like encryption and authentication. Vulnerable to brute-force attacks by guessing passwords. Known vulnerabilities like BlueKeep. Once inside a network, attackers may use RDP to move laterally and access sensitive systems or data.
+
+## **SMB**<br/>
+
+SMB is an application-layer network protocol used primarily for providing shared access to files, printers, and other network resources. It also facilitates network browsing and remote administration features. SMB has been around for decades, and its legacy versions, especially SMBv1, have numerous vulnerabilities. These vulnerabilities often become entry points for attacks due to the protocol's complexity allowing to gain initial access and perform exploitation and pivoting activities.
+
+**SMB key functions:**<br/>
+
+**•	File Sharing:** SMB allows users to read, write, and execute files on remote servers. This is foundational for network file systems and is extensively used in enterprise environments.<br/>
+**•	Authentication:** SMB uses NTLM or Kerberos for user authentication to ensure that only authorized users can access resources.<br/>
+**•	Remote Administration:** It supports remote administration tasks, which can be useful for managing networked computers but also poses security risks if misconfigured.<br/>
+
+**SMB Versions:**<br/>
+
+**•	SMBv1:** Should be disabled due to numerous vulnerabilities. It lacks modern security features and is considered unsafe.<br/>
+**•	SMBv2.1:** Introduced improvements over v1 but still lacks the security features of later versions.<br/>
+**•	SMBv3 (including v3.1.1):** The most recent version includes encryption support and pre-authentication integrity checks, significantly enhancing security.<br/>
+
+**SMB and NTLM**<br/>
+**•	NTLM (NT LAN Manager):** An older authentication protocol used by SMB. It uses a challenge-response mechanism but has vulnerabilities like pass-the-hash and NTLM relay attacks.<br/>
+**•	Security Concerns:** Due to its vulnerabilities, NTLM is not recommended for secure environments. Instead, Kerberos is preferred for its stronger security features.<br/>
+**•	Modern Usage:** While NTLM is still used for compatibility with older systems, Microsoft recommends using Kerberos, which is more secure and supports features like mutual authentication.<br/>
+
+**Famous CVEs:**<br/>
+**EternalBlue (CVE-2017-0144):** A critical vulnerability in SMBv1 that was exploited by the WannaCry ransomware. It allows remote code execution and has been used in numerous attacks.<br/>
+**WannaCry:** A ransomware attack that used EternalBlue to spread rapidly across networks.<br/>
+**SMBGhost (CVE-2020-0796):** A vulnerability in SMBv3 that could allow attackers to execute code remotely on vulnerable systems.<br/>
+**SMBleed (CVE-2020-1206):** A related vulnerability to SMBGhost that leaks kernel memory, potentially allowing information disclosure.<br/>
+
+## **PSExec**<br/>
+
+PsExec is a command-line tool that allows users to execute processes on remote systems without requiring a graphical interface. It is part of the Sysinternals suite developed by Microsoft. PsExec utilizes SMB for network communication. It does not have a fixed port like RDP; instead, it leverages ports used by SMB. PsExec does not inherently encrypt communications, so its use should be carefully controlled and monitored. 
+
 ____
 
 ## **Data Exfiltration**<br/>
@@ -278,35 +313,6 @@ ____
 Phishing is a type of cyberattack where attackers impersonate legitimate entities to trick users into revealing sensitive information (like credentials or financial data) or to deliver malware. It often comes via email but can also occur through SMS (smishing), voice calls (vishing), or social media.
 
 My approach to phishing analysis begins with a thorough examination of email logs and metadata. I start by verifying the sender's domain using OSINT tools such as Cisco Talos and VirusTotal to determine if it has been flagged as malicious. I then analyze the sender's IP address through similar reputation services to assess its trustworthiness. Next, I inspect the email headers and content using tools like EML Analyzer and MXToolbox, checking for proper SPF, DKIM, and DMARC signatures to validate the authenticity of the message. I also extract and evaluate any embedded URLs, scanning them with OSINT platforms and detonating them in sandbox environments to identify potential threats. If any indicators are confirmed as suspicious or malicious, I take action by blacklisting the domain, sender IP, and URLs. Additionally, I search for evidence of user interaction, such as URL clicks, and identify all recipients or senders of similar emails based on subject and sender patterns. If necessary, I initiate a purge of all related emails across the environment to contain the threat and prevent further compromise.
-
-____
-
-## **SMB**
-
-SMB is an application-layer network protocol used primarily for providing shared access to files, printers, and other network resources. It also facilitates network browsing and remote administration features. SMB has been around for decades, and its legacy versions, especially SMBv1, have numerous vulnerabilities. These vulnerabilities often become entry points for attacks due to the protocol's complexity allowing to gain initial access and perform exploitation and pivoting activities.
-
-**SMB key functions:**<br/>
-
-**•	File Sharing:** SMB allows users to read, write, and execute files on remote servers. This is foundational for network file systems and is extensively used in enterprise environments.<br/>
-**•	Authentication:** SMB uses NTLM or Kerberos for user authentication to ensure that only authorized users can access resources.<br/>
-**•	Remote Administration:** It supports remote administration tasks, which can be useful for managing networked computers but also poses security risks if misconfigured.<br/>
-
-**SMB Versions:**<br/>
-
-**•	SMBv1:** Should be disabled due to numerous vulnerabilities. It lacks modern security features and is considered unsafe.<br/>
-**•	SMBv2.1:** Introduced improvements over v1 but still lacks the security features of later versions.<br/>
-**•	SMBv3 (including v3.1.1):** The most recent version includes encryption support and pre-authentication integrity checks, significantly enhancing security.<br/>
-
-**SMB and NTLM**<br/>
-**•	NTLM (NT LAN Manager):** An older authentication protocol used by SMB. It uses a challenge-response mechanism but has vulnerabilities like pass-the-hash and NTLM relay attacks.<br/>
-**•	Security Concerns:** Due to its vulnerabilities, NTLM is not recommended for secure environments. Instead, Kerberos is preferred for its stronger security features.<br/>
-**•	Modern Usage:** While NTLM is still used for compatibility with older systems, Microsoft recommends using Kerberos, which is more secure and supports features like mutual authentication.<br/>
-
-**Famous CVEs:**<br/>
-**EternalBlue (CVE-2017-0144):** A critical vulnerability in SMBv1 that was exploited by the WannaCry ransomware. It allows remote code execution and has been used in numerous attacks.<br/>
-**WannaCry:** A ransomware attack that used EternalBlue to spread rapidly across networks.<br/>
-**SMBGhost (CVE-2020-0796):** A vulnerability in SMBv3 that could allow attackers to execute code remotely on vulnerable systems.<br/>
-**SMBleed (CVE-2020-1206):** A related vulnerability to SMBGhost that leaks kernel memory, potentially allowing information disclosure.<br/>
 
 ____
 
@@ -428,8 +434,9 @@ schtasks /create /tn "Updater" /tr "powershell.exe -File C:\malicious.ps1" /sc m
 ```
 Get-WinEvent -LogName "Microsoft-Windows-PowerShell/Operational" | Where-Object { $_.Id -eq 4104 }
 ```
+-----
 
-Sysinternals Tools for process and system analysis<br/>
+## **Sysinternals Tools** <br/>
 
 **• Process Explorer:** Provides detailed information about running processes, including open handles and loaded DLLs. Useful for identifying suspicious processes.<br/>
 **• Process Monitor:** Offers real-time monitoring of file system, registry, process, and network activity. It is valuable for identifying abnormal behavior and forensic analysis.<br/>
@@ -437,6 +444,9 @@ Sysinternals Tools for process and system analysis<br/>
 **• Autoruns:** Lists auto-start extensibility points (ASEPs), allowing you to identify unusual programs configured to run at startup.<br/>
 **• Sysmon:** Provides detailed logging of system events, including process creation, network connections, and file modifications. It is useful for feeding data into SIEM systems for comprehensive monitoring.<br/>
 **• ProcDump:** Captures process memory dumps, aiding in malware analysis and understanding the behavior of suspicious processes.<br/>
+
+Complete Microsoft Documentation for all Sysinternals tools:
+https://learn.microsoft.com/en-us/sysinternals/
 ____
 
 ## **PUPs**
