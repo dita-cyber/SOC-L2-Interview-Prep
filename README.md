@@ -58,9 +58,15 @@ To assess persistence, I would check for common persistence mechanisms such as r
 HKLM\Software\Microsoft\Windows\CurrentVersion\Run
 ```
 •	Netcat Listeners / Reverse TCP Shells:	Deploying tools like Netcat to listen for incoming connections or establishing reverse shells that call back to the attacker's server.<br/>
-• Scheduled Tasks / WMI (Windows Management Instrumentation): Creating scheduled tasks to execute malicious scripts or programs periodically or upon certain events. WMI can be used for more complex event-driven persistence mechanisms.<br/>
+• Scheduled Tasks / WMI: Creating scheduled tasks to execute malicious scripts or programs periodically or upon certain events. WMI can be used for more complex event-driven persistence mechanisms.<br/>
 • Active Directory Exploits (e.g., Golden Ticket): Utilizing Kerberos exploits, such as the Golden Ticket, to create forged authentication tokens that provide long-term access to AD environments.<br/>
 •	Web Shells: Compromising a web server and inserting a web shell to provide remote access via HTTP/S, allowing the attacker to execute commands on the server.<br/>
+
+Scheduled Tasks vs. WMI (Windows Management Instrumentation)<br/>
+
+Scheduled tasks allow programs or scripts to run automatically at specified times or events. Attackers can create or modify scheduled tasks to ensure their malicious code executes regularly, maintaining persistence. Example: An attacker sets up a task to run a malicious script every time a user logs in.<br/>
+
+WMI provides a way to interact with and manage Windows system components. Attackers can use WMI to execute code, set up event subscriptions, or query system information to maintain persistence. Example: An attacker creates a WMI event subscription that triggers a malicious script when specific system events occur, like a system startup.<br/>
 
 
 **Event IDs for Monitoring Persistence (Windows)**
