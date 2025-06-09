@@ -62,7 +62,7 @@ HKLM\Software\Microsoft\Windows\CurrentVersion\Run
 • Active Directory Exploits (e.g., Golden Ticket): Utilizing Kerberos exploits, such as the Golden Ticket, to create forged authentication tokens that provide long-term access to AD environments.<br/>
 •	Web Shells: Compromising a web server and inserting a web shell to provide remote access via HTTP/S, allowing the attacker to execute commands on the server.<br/>
 
-Scheduled Tasks vs. WMI (Windows Management Instrumentation)<br/>
+Scheduled tasks vs. WMI (Windows Management Instrumentation)<br/>
 
 Scheduled tasks allow programs or scripts to run automatically at specified times or events. Attackers can create or modify scheduled tasks to ensure their malicious code executes regularly, maintaining persistence. Example: An attacker sets up a task to run a malicious script every time a user logs in.<br/>
 
