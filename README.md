@@ -149,6 +149,8 @@ Lateral movement attacks typically follow a methodical progression that allows a
 Pivoting is the attacker’s strategy to expand their reach from a specific point. It’s like breaking into a single room and then figuring out how to access other areas using that room. 
 Lateral movement is more about maintaining a low profile while gathering credentials or data, like sneaking from room to room unnoticed. What sets them apart is that pivoting is the first move after breaching a weak spot. It’s like finding a compromised server and then using it as a base to access other servers within the network. The attacker might use tools like Metasploit to exploit vulnerabilities from this initial access point. For example, after breaking into a web server, they may access a database server connected to it through existing trust relationships. Lateral movement often comes after pivoting. Once attackers have infiltrated further, they start exploring the internal landscape. 
 
+https://jpcertcc.github.io/ToolAnalysisResultSheet/
+
 **Common protocols and tools**<br/>
 **•	RDP<br/>
 •	SMB<br/>
@@ -161,8 +163,7 @@ Lateral movement is more about maintaining a low profile while gathering credent
 •	PSExec (not a protocol but methodology)<br/>
 •	Cobalt Strike<br/>
 •	Impacket**<br/>
-
-https://jpcertcc.github.io/ToolAnalysisResultSheet/
+•	**Other Desktop support software:** VNC, Team Viewer, AnyDesk, ScreenConnect, LogMein, AmmyyAdmin.<br/>
 
 ## **RDP**<br/>
 
