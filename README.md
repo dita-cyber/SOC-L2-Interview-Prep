@@ -72,7 +72,7 @@ WMI provides a way to interact with and manage Windows system components. Attack
 **Event IDs for Monitoring Persistence (Windows)**
 | **Event ID** | **Event Name**                                               | **Use Case**                                                                 |
 |--------------|--------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| 4624         | Logon                                                        | Successful logon events. Unusual logons might indicate the use of new or unexpected accounts. |
+| 4624 (3/10)  | Logon                                                        | Successful logon events. Unusual logons might indicate the use of new or unexpected accounts. |
 | 4634         | Logoff                                                       | Logoff events. Patterns here can be correlated with suspicious logon activities.             |
 | 4672         | Special Privileges Assigned                                  | Indicates privilege escalation by assigning special privileges to new sessions.              |
 | 4732         | Member Added to a Security-Enabled Global Group              | Adding a user to a privileged group could be a sign of persistence setup.                   |
@@ -80,7 +80,7 @@ WMI provides a way to interact with and manage Windows system components. Attack
 | 4688         | New Process Created                                          | Reveals execution of potentially malicious programs or scripts.                             |
 | 4697         | Service Installed                                            | Installation of new services, which could be used for persistence.                          |
 | 4768         | Kerberos Authentication Ticket (TGT) Requested               | Unusual TGT requests might indicate forged ticket usage or lateral movement.                |
-| 7045         | New Windows service is installed on a system                 | New Windows service is installed on a system                            |
+| 7045         | New Windows service is installed on a system                 | New Windows service is installed on a system                                                |
  
 **Suspicious IOCs:**
 
