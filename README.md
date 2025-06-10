@@ -82,6 +82,7 @@ WMI provides a way to interact with and manage Windows system components. Attack
 | 4768         | Kerberos Authentication Ticket (TGT) Requested               | Unusual TGT requests might indicate forged ticket usage or lateral movement.                |
 | 7045         | New Windows service is installed on a system                 | New Windows service is installed on a system                                                |
 | 5857/5859/5861        | WMI Logs               | WMI Queries                                             |
+
 **Suspicious IOCs:**
 
 • Registry-Based Persistence (Windows)<br/>
