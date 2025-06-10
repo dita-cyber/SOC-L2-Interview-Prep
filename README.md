@@ -229,7 +229,7 @@ To investigate data exfiltration alerts, I would analyze network logs for large 
 • Use of command-line tools for transfer - Use of curl, wget, ftp, scp, Invoke-WebRequest, or bitsadmin.<br/> 
 • Unusual locations - Sensitive files copied to temp folders, recycle bin, or hidden directories before transfer.<br/> 
 • Excessive file access or copying - User accessing or copying large numbers of files in a short time from file shares or sensitive directories.<br/> 
-
+• Attackers can extract password hashes from NTDS.DIT and use them for credential dumping, pass-the-hash attacks, or offline password cracking.  NTDS.DIT file is a critical target for attackers due to the sensitive information it contains. 
 ____
 
 ## **Binary / Malware Analysis**
