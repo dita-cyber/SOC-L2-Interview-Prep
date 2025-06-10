@@ -200,6 +200,15 @@ SMB is an application-layer network protocol used primarily for providing shared
 
 PsExec is a command-line tool that allows users to execute processes on remote systems without requiring a graphical interface. It is part of the Sysinternals suite developed by Microsoft. PsExec utilizes SMB for network communication. It does not have a fixed port like RDP; instead, it leverages ports used by SMB. PsExec does not inherently encrypt communications, so its use should be carefully controlled and monitored. 
 
+## **Impacket**<br/>
+Open-source Python library for conducting network-based attacks. The tool contains several tools for remote service execution, Kerberos manipulation, Windows credential dumping, packet sniffing, and relay attacks. 
+
+- wmiexec module can be used to execute commands through WMI.<br/>
+- Various modules emulating other service execution tools such as PsExec.<br/>
+- Tools like getST.py or ticketer.py can be used to steal or forge Kerberos tickets.<br/>
+- SecretsDump and Mimikatz modules within Impacket can perform credential dumping to obtain account and password information.<br/>
+- Sniff network traffic via an interface or raw socket.<br/>
+
 ____
 
 ## **Data Exfiltration**<br/>
