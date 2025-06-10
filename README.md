@@ -44,11 +44,6 @@ Persistence refers to a threat actor's ability to maintain a foothold in a compr
 
 To assess persistence, I would check for common persistence mechanisms such as registry modifications, scheduled tasks, startup folder entries, and new services that may have been created.
 
-**Goals of Persistence**<br/>
-• Regain Access: Ensuring the ability to reconnect to the compromised system.<br/>
-• Avoid Detection: Implementing methods that are stealthy to avoid being caught by security systems or analysts.<br/>
-• Preserve Privileges: Maintaining or escalating privileges to perform necessary actions.<br/>
-• Flexibility to Reestablish Access: Using different methods to re-enter the system if one is blocked or removed.<br/>
 
 **Techniques for Achieving Persistence**<br/>
 • Create New Accounts: net user /add to create new user accounts with administrator privileges to ensure continued access.<br/>
