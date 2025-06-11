@@ -312,6 +312,18 @@ Detecting a suspicious PE or ELF file involves analyzing indicators that deviate
 **•	Unexpected network connections**<br/>
 **•	Establish persistence by modifying the registry or creating scheduled tasks / cron jobs**<br/>
 
+**Prefetch**<br/>
+
+Prefetch is a Windows feature designed to optimize system performance by preloading frequently used applications into memory. Windows creates Prefetch files (.pf) that store data about the applications’ usage patterns, including file paths, the number of times an application has been executed, and the last execution timestamp. Prefetch analysis can provide valuable information about the user’s activities, such as which applications were run, the frequency of use, and when they were last accessed. This information can help investigators uncover potential evidence or establish a timeline of events.<br/>
+
+**Shellbags**<br/>
+
+Shellbags are a lesser-known but highly valuable source of forensic evidence. They are data structures in the Windows Registry that store information about user interactions with the Windows Explorer, such as the view settings, window positions, and folder customization. By analyzing Shellbag data, investigators can gain insights into which folders the user accessed, their navigation history, and even deleted folders.<br/>
+
+**Jump Lists**<br/>
+
+Feature that provides quick access to recently opened files, frequently accessed documents, or specific application tasks. The first list is stored in a binary format file with a .automaticDestinations-ms extension and can be found in the user’s AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations folder.<br/>
+
 ____
 
 ## **Phishing Analysis**
