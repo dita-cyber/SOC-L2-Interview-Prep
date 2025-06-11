@@ -104,10 +104,6 @@ Files dropped in:<br/>
 %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup
 ```
 
-• DLL Side-Loading / Hijacking<br/>
-Unusual DLLs in application directories<br/>
-DLLs with mismatched names or hashes<br/>
-
 • Service Creation / Modification<br/>
 Use of sc.exe create or PowerShell New-Service<br/>
 Suspicious Event IDs <br/>
@@ -115,6 +111,19 @@ Suspicious Event IDs <br/>
 • Unusual Parent-Child Process Relationships<br/>
 explorer.exe → cmd.exe or powershell.exe<br/>
 svchost.exe → unknown binaries<br/>
+
+• DLL Side-Loading / Hijacking<br/>
+Unusual DLLs in application directories<br/>
+DLLs with mismatched names or hashes<br/>
+
+**DLL's**<br/>
+
+A Dynamic Link Library is a file type in Windows that contains code and data that can be used by multiple programs simultaneously. It's a way to share reusable code between different applications, reducing redundancy and saving memory and disk space. DLLs are essentially modules that contain functions and data that can be linked to and used by other programs or DLLs. Malicious DLLs often exhibit unusual behaviors, such as accessing sensitive files, executing unauthorized commands, or communicating with external endpoints. 
+
+Common IOCs:<br/>
+- DLL Sideloading/Hijacking<br/>
+- DLL Injection<br/>
+- Unusual Load Paths<br/>
 
 ____
 
