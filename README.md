@@ -448,7 +448,7 @@ Get-WinEvent -LogName "Microsoft-Windows-PowerShell/Operational" | Where-Object 
 **• Process Monitor:** Offers real-time monitoring of file system, registry, process, and network activity. It is valuable for identifying abnormal behavior and forensic analysis.<br/>
 **• TCPView:** Displays active TCP and UDP connections, helping identify unauthorized network communication.<br/>
 **• Autoruns:** Lists auto-start extensibility points (ASEPs), allowing you to identify unusual programs configured to run at startup.<br/>
-**• Sysmon:** Provides detailed logging of system events, including process creation, network connections, and file modifications. It is useful for feeding data into SIEM systems for comprehensive monitoring.<br/>
+**• Sysmon:** Provides detailed logging of system events, including process creation, network connections, and file modifications. It is useful for feeding data into SIEM systems for comprehensive monitoring. Sysmon can be a valuable tool for registry investigation because it provides detailed logging of registry activities, including key modifications, creation, and deletion.<br/>
 **• ProcDump:** Captures process memory dumps, aiding in malware analysis and understanding the behavior of suspicious processes.<br/>
 
 Complete Microsoft Documentation for all Sysinternals tools:
